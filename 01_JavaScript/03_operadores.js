@@ -138,3 +138,48 @@ const respuestaFilter = arreglo
     )
 console.log('respuestaFilter' , respuestaFilter)
 
+// Some -> expresión, devuelve booleano
+// Hay alguna nota menor a 9?? SI NO
+// OR
+const respuestaSome = arreglo
+    .some(
+        (valorActual, indiceActual, aregloCompleto) => {
+            return valorActual.nota < 9
+        }
+    )
+console.log("Respuesta some: ", respuestaSome)
+
+
+// Every -> expresión, devuelve booleano
+// Todas las notas son mayores a 14 ?? SI NO
+// AND
+const respuestaEvery = arreglo
+    .every(
+        (valorActual, indiceActual, aregloCompleto) => {
+            return valorActual.nota > 14
+        }
+    )
+console.log("RespuestaEvery: ", respuestaEvery)
+
+
+// Promedio de notas de todo el curso
+// Reduce       izq -> der
+// ReduceRight  der -> izq
+
+const respuestaReduce = arreglo
+    .reduce(
+        (valorAcumulado, valorActual, indice, arreglo) => {
+            return valorAcumulado - valorActual.nota
+        },
+        500 // Acumulador
+    )
+console.log("RespuestaReduce: ", respuestaReduce)
+
+const arregloEstudiantesMenosresANueve = arreglo
+    .map((v)=> v.nota * 1.3) // anadiendo el 30%
+    .filter((nota)=> nota < 14) // busco a los menores de 14
+    const totalPuntosEstudiantes = arregloEstudiantesMenosresANueve
+    .reduce((acumulado, actual)=>acumulado+actual,0) // total
+const notaPromedio = totalPuntosEstudiantes / arregloEstudiantesMenosresANueve.length
+console.log('nota promedio', notaPromedio)
+
