@@ -26,7 +26,7 @@ const arreglo = [
     },
     {
         id: 6,
-        nombre: 'Raul',
+        nombre: 'Raúl',
         nota: 14
     },
     {
@@ -46,7 +46,7 @@ const arreglo = [
     },
     {
         id: 10,
-        nombre: 'Mia',
+        nombre: 'Mía',
         nota: 18
     }
 ];
@@ -61,7 +61,7 @@ Filtren cuales personas pasaron
 console.log("Notas inciales:", arreglo)
 
 // Mapeo de notas
-const vocales = ["a", "e", "i", "o", "u"]
+const vocales = ["a", "e", "i", "o", "u", "á", "é", "í", "ó", "ú"]
 const mapeoEstudiantes = arreglo
     .map(
         (estudianteActual) => {
@@ -82,14 +82,14 @@ const mapeoEstudiantes = arreglo
                     id: estudianteActual.id,
                     nombre: estudianteActual.nombre,
                     // nota: estudianteActual.nota.toFixed(2),
-                    nota: '20.00',
+                    nota_final: '20.00',
                     incremento: incremento
                 }
             } else {
                 return {
                     id: estudianteActual.id,
                     nombre: estudianteActual.nombre,
-                    nota: notaFinal.toFixed(2), // toFixed(2) para 2 decimales
+                    nota_final: notaFinal.toFixed(2), // toFixed(2) para 2 decimales
                     incremento: incremento
                 }
             }
@@ -103,8 +103,9 @@ const estudiantesAprobados = mapeoEstudiantes.filter( // Filtrado
         return aprobadoActual.nota >= 14
     }
 )
-console.log('Lista de estudiantes aprobados (>14):', estudiantesAprobados)
+console.log('Estudiantes aprobados (>14):', estudiantesAprobados)
 
 // Arreglo inicial limpio, sin modificaciones
-console.log("Arreglo incial:", arreglo)
+console.log("Notas iniciales:", arreglo)
 
+//
