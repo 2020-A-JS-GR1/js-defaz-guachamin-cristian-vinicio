@@ -1,0 +1,7 @@
+{
+  "name": "js-defaz-guachamin-cristian-vinicio",
+  "version": "1.0.0",
+  "dependencies": {
+    "inquirer": "^7.3.2"
+  }
+}

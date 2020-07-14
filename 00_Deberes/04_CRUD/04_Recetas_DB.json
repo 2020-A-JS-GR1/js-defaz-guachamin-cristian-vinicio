@@ -1,0 +1,16 @@
+{
+  "recetas": [
+    {
+      "nombre": "criss",
+      "edad": "23"
+    },
+    {
+      "nombre": "jessy",
+      "edad": "2"
+    },
+    {
+      "nombre": "kerly",
+      "edad": "16"
+    }
+  ]
+}
