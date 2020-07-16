@@ -1,0 +1,19 @@
+{
+  "comidas": [
+    {
+      "nombreComida": "Empanadas",
+      "cantidadCom": "5",
+      "id": 1
+    },
+    {
+      "nombreComida": "Encebollado",
+      "cantidadCom": 4,
+      "id": 2
+    },
+    {
+      "nombreComida": "Papas con cuero",
+      "cantidadCom": 3,
+      "id": 3
+    }
+  ]
+}

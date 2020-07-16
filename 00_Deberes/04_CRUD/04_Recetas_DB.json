@@ -1,16 +1,34 @@
 {
-  "recetas": [
+  "comidas": [
     {
-      "nombre": "criss",
-      "edad": "23"
+      "nombreComida": "Empanadas",
+      "cantidad": 4,
+      "id": 1
     },
     {
-      "nombre": "jessy",
-      "edad": "2"
+      "nombreComida": "Guatita",
+      "cantidad": 4,
+      "id": 2
     },
     {
-      "nombre": "kerly",
-      "edad": "16"
+      "nombreComida": "Ensalada",
+      "cantidad": 7,
+      "id": 3
+    },
+    {
+      "nombreComida": "Encebollado",
+      "cantidad": 4,
+      "id": 4
+    },
+    {
+      "nombreComida": "Salchipapas",
+      "cantidad": 2,
+      "id": 5
+    },
+    {
+      "nombreComida": "Papipollo",
+      "cantidad": 2,
+      "id": 6
     }
   ]
 }
