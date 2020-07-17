@@ -2,22 +2,23 @@ const fs = require('fs')
 const inquirer = require('inquirer')
 const pathComida = './04_Comidas_DB.json'
 
-/* Muestra el menú del sistema y los entrads de texto (inputs) */
+/* Muestra el menú del sistema y los entradas de texto (inputs) */
 async function mostrarMenuPrincipal() {
     try {
         const menu = await inquirer.prompt([
             {
                 type: 'number',
                 name: 'opcionMenu',
-                message: 'Seleccione una opción:\n1) Ver comidas\n' +
-                    '2) Nueva comida\n3) Editar Comida\n3) Eliminar comidas:\n'
+                message: 'Menú Principal.- Seleccione una opción:\n1. Mostrar comidas\n' +
+                    '2. Nueva comida\n3. Editar Comida\n4. Eliminar comida:\n5. Salir\n'
             }
         ])
-        switch (menu["opcionMenu"]) {
-            case 1:
-                return listarComidaDB()
+        switch (menu["opcionMenu"]) { // Acciones de menu principal
+            case 1: // Vista de comidas disponibles
+                await listarComidaDB()
+                return mostrarMenuPrincipal()
             case 2:
-                const nuevaComida = await inquirer.prompt([
+                const nuevaComida = await inquirer.prompt([ // Formulario nueva comida
                     {
                         type: 'input',
                         name: 'nombreComida',
@@ -32,11 +33,11 @@ async function mostrarMenuPrincipal() {
                 return agregarComidaDB(nuevaComida)
             case 3:
                 await listarComidaDB()
-                const comidaAEditar = await inquirer.prompt([
+                const comidaAEditar = await inquirer.prompt([ // Formulario comida a editar
                     {
                         type: 'number',
                         name: 'idComidaAEditar',
-                        message: 'Ingrese el id:'
+                        message: 'id Comida a editar:'
                     },
                     {
                         type: 'number',
@@ -45,7 +46,7 @@ async function mostrarMenuPrincipal() {
                             '3. NumeroPersonas\n4. Nacionalidad\n5. Picante:\n'
                     }
                 ])
-                switch (comidaAEditar["campoAEditar"]) {
+                switch (comidaAEditar["campoAEditar"]) { // Acciones de campo a editar
                     case 1:
                         const nuevoNombre = await inquirer.prompt([
                             {
@@ -66,8 +67,21 @@ async function mostrarMenuPrincipal() {
                         return editarComidaDB(comidaAEditar["idComidaAEditar"], 2, nuevaDesc["nuevaDescComida"])
                     default:
                         console.log("Opcion no válida")
+                        break
                 }
-
+                break
+            case 4:
+                await listarComidaDB()
+                const idABorrar = await inquirer.prompt([ // Acción de Borrado
+                    {
+                        type: 'number',
+                        name: 'idComidaABorrar',
+                        message: 'id Comida a Eliminar:'
+                    }
+                ])
+                return eliminarComida(idABorrar["idComidaABorrar"])
+            default:
+                break
         }
     } catch (error) {
         console.log('error', error)
@@ -118,13 +132,14 @@ function promesaEscribirArchivoDB(comidasActuales) {
 /* Muestra una lista de todas las comidas disponibles y su id*/
 async function listarComidaDB() {
     try {
-        console.log("[Comidas disponibles]")
+        console.log("|******** Menú del día ********|")
         const listaComidas = await promesaLeerArchivoDB(pathComida)
         listaComidas["comidas"].forEach(
             (comidaActual) => {
-                console.log("id: " + comidaActual["id"] + " " + comidaActual["nombreComida"])
+                console.log("id: " + comidaActual["id"] + " Comida: " + comidaActual["nombreComida"])
             }
         )
+        console.log("|******************************|")
     } catch (error) {
         console.log('error', error)
     }
@@ -146,10 +161,12 @@ async function buscarComidaDB(id) { // Devuelve un objeto comida según id
 async function agregarComidaDB(nuevaComida) {
     try {
         const listaComidas = await promesaLeerArchivoDB(pathComida)
+        /* Crea una id para la nueva comida a partir del id de la última comida del archivo */
         const idNuevaComida = listaComidas["comidas"][listaComidas["comidas"].length - 1].id
-        nuevaComida.id = idNuevaComida + 1 // Agregando una id
+        nuevaComida.id = idNuevaComida + 1
         listaComidas["comidas"].push(nuevaComida)
         await promesaEscribirArchivoDB(listaComidas)
+        await mostrarMenuPrincipal()
     } catch (error) {
         console.log('error', error)
     }
@@ -161,9 +178,10 @@ async function editarComidaDB(idComida, campoAEditar, nuevoDatoComida) {
         console.log("idcomida: "+idComida)
         const comidaAEditar = await buscarComidaDB(idComida)
         const listaComidasActualizadas = await promesaLeerArchivoDB()
-        const indiceComida = listaComidasActualizadas["comidas"].findIndex(
+        const posicionComidaActual = listaComidasActualizadas["comidas"].findIndex(
             comidaActual => comidaActual["id"] === idComida
         )
+        /* El cambio se realiza según el campo a editar seleccionado en el menu */
         switch (campoAEditar) {
             case 1: // Cambiar el nombre
                 comidaAEditar["nombreComida"] = nuevoDatoComida
@@ -175,8 +193,25 @@ async function editarComidaDB(idComida, campoAEditar, nuevoDatoComida) {
                 console.log("Opcion no válida")
                 break
         }
-        listaComidasActualizadas["comidas"][indiceComida] = comidaAEditar
-        return await promesaEscribirArchivoDB(listaComidasActualizadas)
+        /* El nuevo objeto editado reemplaza al anterior en la misma posición */
+        listaComidasActualizadas["comidas"].splice(posicionComidaActual, 1, comidaAEditar)
+        await promesaEscribirArchivoDB(listaComidasActualizadas)
+        await mostrarMenuPrincipal()
+    } catch (error) {
+        console.log('error', error)
+    }
+}
+
+/* Recibe el id de un objeto comida y lo elimina */
+async function eliminarComida(idComida){
+    try {
+        const listaComidasActualizadas = await promesaLeerArchivoDB()
+        const indiceComida = listaComidasActualizadas["comidas"].findIndex(
+            comidaAEliminar => comidaAEliminar["id"] === idComida
+        )
+        listaComidasActualizadas["comidas"].splice(indiceComida, 1)
+        await promesaEscribirArchivoDB(listaComidasActualizadas)
+        await mostrarMenuPrincipal()
     } catch (error) {
         console.log('error', error)
     }
@@ -190,5 +225,5 @@ async function main(){
     }
 }
 
-main()
+main().then(()=>console.log("by Cristian Defaz, buenas tardes :D") )
 
