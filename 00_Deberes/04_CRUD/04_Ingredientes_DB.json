@@ -1,0 +1,28 @@
+{
+  "ingredientes": [
+    {
+      "nombreIngrediente": "Carne de borrego",
+      "cantidadIngrediente": 3,
+      "tipoIngrediente": "Carne/Embutido",
+      "refrigeracion": true,
+      "idComida": 1,
+      "idIng": 1
+    },
+    {
+      "nombreIngrediente": "Carne de borrego",
+      "cantidadIngrediente": 3,
+      "tipoIngrediente": "Fruta/Legumbre",
+      "refrigeracion": true,
+      "idComida": 1,
+      "idIng": 2
+    },
+    {
+      "nombreIngrediente": "Maiz",
+      "cantidadIngrediente": 6,
+      "tipoIngrediente": "Fruta/Legumbre",
+      "refrigeracion": false,
+      "idComida": 5,
+      "idIng": 3
+    }
+  ]
+}
