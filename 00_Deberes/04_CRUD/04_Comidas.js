@@ -197,13 +197,13 @@ async function mostrarMenuComida() {
                 }
                 break
             case "Eliminar comida":
-                const comidas_ = await mostrarTodasLasComidas()
+                const comidasBorrables = await mostrarTodasLasComidas()
                 const comidaABorrar = await inquirer.prompt([ // Acción de Borrado
                     {
                         type: 'list',
                         name: 'listaComidas',
                         message: 'Seleccione una comida',
-                        choices: comidas_
+                        choices: comidasBorrables
                     }
                 ])
                 const idComidaABorrar = parseInt(comidaABorrar["listaComidas"].split("-")[0]) // extrae el id
@@ -223,7 +223,7 @@ async function mostrarTodasLasComidas() {
     try {
         const listaComidas = await promesaLeerArchivoDB(pathComida)
         return listaComidas["comidas"]
-            .map(actual => actual["id"] + "- " + actual["nombreComida"])
+            .map(actual => actual["id"] + "- " + actual["nombreComida"]).reverse()
     } catch (error) {
         console.log('error', error)
     }
@@ -270,7 +270,7 @@ async function editarComidaDB(idComida, campoAEditar, nuevoDatoComida) {
                 comidaAEditar["nombreComida"] = nuevoDatoComida
                 break
             case 2: // Cambiar la descripción
-                comidaAEditar["descripcionComida"] = nuevoDatoComida
+                comidaAEditar["tipoComida"] = nuevoDatoComida
                 break
             case 3: // Cambiar la nacionalidad
                 comidaAEditar["nacionalidad"] = nuevoDatoComida
@@ -296,10 +296,16 @@ async function editarComidaDB(idComida, campoAEditar, nuevoDatoComida) {
 /* Recibe el id de un objeto comida, lo elimina y envia los cambios al DB */
 async function eliminarComidaDB(idComida) {
     try {
+        /* Eliminacion de ingredientes en cascada, filtrando los no tengan el idComida */
+        const listaIngredientes = await promesaLeerArchivoDB(pathIngredientes)
+        listaIngredientes["ingredientes"] = listaIngredientes["ingredientes"]
+            .filter(ing => ing["idComida"] !== idComida)
+         await promesaEscribirArchivoDB(pathIngredientes, listaIngredientes)
+
+        /* Finalmente elimina la comida */
         const listaComidasActualizadas = await promesaLeerArchivoDB(pathComida)
-        const indiceComida = listaComidasActualizadas["comidas"].findIndex(
-            comidaAEliminar => comidaAEliminar["id"] === idComida
-        )
+        const indiceComida = listaComidasActualizadas["comidas"]
+            .findIndex(comidaAEliminar => comidaAEliminar["id"] === idComida)
         listaComidasActualizadas["comidas"].splice(indiceComida, 1)
         await promesaEscribirArchivoDB(pathComida, listaComidasActualizadas)
         await mostrarMenuComida()
@@ -495,22 +501,22 @@ async function mostrarTodosLosIngredientesDB() {
         console.log("|___ Catálogo ingredientes ____|")
         const listaIngredientes = await promesaLeerArchivoDB(pathIngredientes)
         return listaIngredientes["ingredientes"]
-            .map(actual => actual["idIng"] + "- " + actual["nombreIngrediente"])
+            .map(actual => actual["idIng"] + "- " + actual["nombreIngrediente"]).reverse()
             .forEach(ingredientes => console.log(ingredientes))
     } catch (error) {
         console.log('error', error)
     }
 }
 
-/* Retorna un arreglo de ingredientes correspondiente a un objeto comida */
+/* Retorna un arreglo de ingredientes a parit de un objeto "id-nombreIngrediente" */
 async function buscarIngredientesPorComida(comidaParaIngrediente) {
-    const idComidaAMostrar = parseInt(comidaParaIngrediente["listaComidas"].split("-")[0])
-    console.log("Ingredientes de", comidaParaIngrediente["listaComidas"].split("-")[1])
+    const idComidaAMostrar = parseInt(comidaParaIngrediente["listaComidas"].split("-")[0]) // id
+    console.log("Ingredientes de:", comidaParaIngrediente["listaComidas"].split("-")[1]) // nombre
     try {
         const listaIngredientes = await promesaLeerArchivoDB(pathIngredientes)
         return listaIngredientes["ingredientes"]
             .filter(actual => actual["idComida"] === idComidaAMostrar)
-            .map(actualIng => actualIng["idIng"] + "- " + actualIng["nombreIngrediente"])
+            .map(actualIng => actualIng["idIng"] + "- " + actualIng["nombreIngrediente"]).reverse()
     } catch (error) {
         console.log('error', error)
     }
@@ -528,11 +534,11 @@ async function desplegarIngredientesPorComida(comidaParaIngrediente) {
 }
 
 /* Retorna on objeto ingrediente a partir de su id */
-async function buscarIngredientePorIdDB(id) {
+async function buscarIngredientePorIdDB(idIngrediente) {
     try {
         const listaIngredientes = await promesaLeerArchivoDB(pathIngredientes)
         return listaIngredientes["ingredientes"]
-            .find(ingrediente => ingrediente["idIng"] === id)
+            .find(ingrediente => ingrediente["idIng"] === idIngrediente)
     } catch (error) {
         console.log('error', error)
     }
@@ -591,9 +597,8 @@ async function editarIngredienteDB(idIngrediente, campoAEditar, nuevoDatoIngredi
 async function eliminarIngredienteDB(idIngrediente) {
     try {
         const listaIngredientesActualizados = await promesaLeerArchivoDB(pathIngredientes)
-        const indiceIngrediente = listaIngredientesActualizados["ingredientes"].findIndex(
-            ingredienteAEliminar => ingredienteAEliminar["idIng"] === idIngrediente
-        )
+        const indiceIngrediente = listaIngredientesActualizados["ingredientes"]
+            .findIndex(ingredienteAEliminar => ingredienteAEliminar["idIng"] === idIngrediente)
         listaIngredientesActualizados["ingredientes"].splice(indiceIngrediente, 1)
         await promesaEscribirArchivoDB(pathIngredientes, listaIngredientesActualizados)
         await mostrarMenuIngredientes()
@@ -606,6 +611,7 @@ async function eliminarIngredienteDB(idIngrediente) {
 async function main() {
     try {
         await mostrarMenuPrincipal()
+        // await eliminarComidaDB(2)
     } catch (error) {
         console.log('error', error)
     }

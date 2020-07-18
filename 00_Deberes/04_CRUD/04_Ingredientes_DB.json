@@ -9,28 +9,156 @@
       "idIng": 1
     },
     {
-      "nombreIngrediente": "Arroz",
+      "nombreIngrediente": "Papa cocida",
+      "cantidadIngrediente": 4,
+      "tipoIngrediente": "Legumbre/Verdura",
+      "refrigeracion": false,
+      "idComida": 1,
+      "idIng": 4
+    },
+    {
+      "nombreIngrediente": "Papas",
+      "cantidadIngrediente": 5,
+      "tipoIngrediente": "Legumbre/Verdura",
+      "refrigeracion": false,
+      "idComida": 3,
+      "idIng": 5
+    },
+    {
+      "nombreIngrediente": "Salchicha",
+      "cantidadIngrediente": 6,
+      "tipoIngrediente": "Carne/Embutido",
+      "refrigeracion": true,
+      "idComida": 3,
+      "idIng": 6
+    },
+    {
+      "nombreIngrediente": "Mayonesa",
+      "cantidadIngrediente": 1,
+      "tipoIngrediente": "Aceite/grasa",
+      "refrigeracion": true,
+      "idComida": 3,
+      "idIng": 7
+    },
+    {
+      "nombreIngrediente": "Pure de papa",
+      "cantidadIngrediente": 1,
+      "tipoIngrediente": "Legumbre/Verdura",
+      "refrigeracion": true,
+      "idComida": 5,
+      "idIng": 9
+    },
+    {
+      "nombreIngrediente": "Huevo",
+      "cantidadIngrediente": 1,
+      "tipoIngrediente": "Lacteo",
+      "refrigeracion": false,
+      "idComida": 5,
+      "idIng": 10
+    },
+    {
+      "nombreIngrediente": "Bacalao",
+      "cantidadIngrediente": 2,
+      "tipoIngrediente": "Pescado/Marisco",
+      "refrigeracion": true,
+      "idComida": 6,
+      "idIng": 11
+    },
+    {
+      "nombreIngrediente": "Frejol",
       "cantidadIngrediente": 3,
       "tipoIngrediente": "Cereal/Harina/Grano",
       "refrigeracion": false,
-      "idComida": 2,
-      "idIng": 2
+      "idComida": 6,
+      "idIng": 12
+    },
+    {
+      "nombreIngrediente": "Alberja",
+      "cantidadIngrediente": 2,
+      "tipoIngrediente": "Legumbre/Verdura",
+      "refrigeracion": false,
+      "idComida": 6,
+      "idIng": 13
+    },
+    {
+      "nombreIngrediente": "Choclo tierno",
+      "cantidadIngrediente": 4,
+      "tipoIngrediente": "Legumbre/Verdura",
+      "refrigeracion": true,
+      "idComida": 6,
+      "idIng": 14
+    },
+    {
+      "nombreIngrediente": "Cebolla",
+      "cantidadIngrediente": 10,
+      "tipoIngrediente": "Legumbre/Verdura",
+      "refrigeracion": false,
+      "idComida": 1,
+      "idIng": 15
+    },
+    {
+      "nombreIngrediente": "Flan royal",
+      "cantidadIngrediente": 2,
+      "tipoIngrediente": "Cereal/Harina/Grano",
+      "refrigeracion": false,
+      "idComida": 7,
+      "idIng": 16
+    },
+    {
+      "nombreIngrediente": "pulpa de coco",
+      "cantidadIngrediente": 2,
+      "tipoIngrediente": "Fruta",
+      "refrigeracion": true,
+      "idComida": 7,
+      "idIng": 17
+    },
+    {
+      "nombreIngrediente": "Aji",
+      "cantidadIngrediente": 3,
+      "tipoIngrediente": "Legumbre/Verdura",
+      "refrigeracion": false,
+      "idComida": 8,
+      "idIng": 18
     },
     {
       "nombreIngrediente": "Pollo",
       "cantidadIngrediente": 3,
       "tipoIngrediente": "Carne/Embutido",
       "refrigeracion": true,
-      "idComida": 2,
-      "idIng": 3
+      "idComida": 8,
+      "idIng": 19
     },
     {
-      "nombreIngrediente": "Papa",
-      "cantidadIngrediente": 4,
-      "tipoIngrediente": "Legumbre",
+      "nombreIngrediente": "Lechuga",
+      "cantidadIngrediente": 1,
+      "tipoIngrediente": "Legumbre/Verdura",
+      "refrigeracion": true,
+      "idComida": 8,
+      "idIng": 20
+    },
+    {
+      "nombreIngrediente": "Banana",
+      "cantidadIngrediente": 2,
+      "tipoIngrediente": "Fruta",
+      "refrigeracion": true,
+      "idComida": 9,
+      "idIng": 21
+    },
+    {
+      "nombreIngrediente": "Leche",
+      "cantidadIngrediente": 1,
+      "tipoIngrediente": "Lacteo",
+      "refrigeracion": true,
+      "idComida": 9,
+      "idIng": 22
+    },
+    {
+      "nombreIngrediente": "Lentejuelas",
+      "cantidadIngrediente": 3,
+      "tipoIngrediente": "Cereal/Harina/Grano",
       "refrigeracion": false,
-      "idComida": 1,
-      "idIng": 4
+      "idComida": 4,
+      "idIng": 23
     }
   ]
 }

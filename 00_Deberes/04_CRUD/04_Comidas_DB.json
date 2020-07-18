@@ -9,12 +9,60 @@
       "id": 1
     },
     {
-      "nombreComida": "Seco de pollo",
-      "tipoComida": "Plato fuerte",
+      "nombreComida": "Salchipapa",
+      "tipoComida": "Comida rapida",
       "nacionalidad": "Ecuatoriana",
       "numeroPersonas": 5,
       "picante": false,
-      "id": 2
+      "id": 3
+    },
+    {
+      "nombreComida": "Menestron",
+      "tipoComida": "Postre",
+      "nacionalidad": "Ecuatoriana",
+      "numeroPersonas": 4,
+      "picante": true,
+      "id": 4
+    },
+    {
+      "nombreComida": "Llapingacho",
+      "tipoComida": "Plato fuerte",
+      "nacionalidad": "Ecuatoriana",
+      "numeroPersonas": 5,
+      "picante": true,
+      "id": 5
+    },
+    {
+      "nombreComida": "Fanesca",
+      "tipoComida": "Sopa",
+      "nacionalidad": "Ecuatoriana",
+      "numeroPersonas": 7,
+      "picante": false,
+      "id": 6
+    },
+    {
+      "nombreComida": "Flan de coco",
+      "tipoComida": "Postre",
+      "nacionalidad": "Chilena",
+      "numeroPersonas": 5,
+      "picante": false,
+      "id": 7
+    },
+    {
+      "nombreComida": "Taco",
+      "tipoComida": "Plato fuerte",
+      "nacionalidad": "Mexicana",
+      "numeroPersonas": 5,
+      "picante": true,
+      "id": 8
+    },
+    {
+      "nombreComida": "Batido de frutas",
+      "tipoComida": "Bebida",
+      "nacionalidad": "Colombiana",
+      "numeroPersonas": 3,
+      "picante": false,
+      "id": 9
     }
   ]
 }
