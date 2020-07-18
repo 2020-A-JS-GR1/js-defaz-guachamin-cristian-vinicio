@@ -6,3 +6,5 @@
 /00_Deberes/04_CRUD/package-lock.json
 ./node_modules
 /node_modules/
+./package-lock.json
+./package.json
