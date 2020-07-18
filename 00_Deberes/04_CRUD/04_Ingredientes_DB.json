@@ -1,28 +1,36 @@
 {
   "ingredientes": [
     {
-      "nombreIngrediente": "Carne de borrego",
+      "nombreIngrediente": "Pescado",
       "cantidadIngrediente": 3,
-      "tipoIngrediente": "Carne/Embutido",
+      "tipoIngrediente": "Pescado/Marisco",
       "refrigeracion": true,
       "idComida": 1,
       "idIng": 1
     },
     {
-      "nombreIngrediente": "Carne de borrego",
+      "nombreIngrediente": "Arroz",
       "cantidadIngrediente": 3,
-      "tipoIngrediente": "Fruta/Legumbre",
-      "refrigeracion": true,
-      "idComida": 1,
+      "tipoIngrediente": "Cereal/Harina/Grano",
+      "refrigeracion": false,
+      "idComida": 2,
       "idIng": 2
     },
     {
-      "nombreIngrediente": "Maiz",
-      "cantidadIngrediente": 6,
-      "tipoIngrediente": "Fruta/Legumbre",
-      "refrigeracion": false,
-      "idComida": 5,
+      "nombreIngrediente": "Pollo",
+      "cantidadIngrediente": 3,
+      "tipoIngrediente": "Carne/Embutido",
+      "refrigeracion": true,
+      "idComida": 2,
       "idIng": 3
+    },
+    {
+      "nombreIngrediente": "Papa",
+      "cantidadIngrediente": 4,
+      "tipoIngrediente": "Legumbre",
+      "refrigeracion": false,
+      "idComida": 1,
+      "idIng": 4
     }
   ]
 }

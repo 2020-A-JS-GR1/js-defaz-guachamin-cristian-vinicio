@@ -1,3 +1,4 @@
+/* Archivo solo para probar :V */
 const inquirer = require('inquirer')
 /*
 const data = ["Criss", "Jessy", "Mary", "kerly"]

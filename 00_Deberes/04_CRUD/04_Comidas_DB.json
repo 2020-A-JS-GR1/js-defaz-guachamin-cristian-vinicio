@@ -1,1 +1,20 @@
-{"comidas":[{"nombreComida":"Caldo de 31","cantidadCom":"5","id":1},{"nombreComida":"Papas con cuero","cantidadCom":"5","id":3},{"nombreComida":"Humitas con cafe","cantidadCom":"5","id":4},{"nombreComida":"Chicha de jora","cantidadCom":10,"id":5},{"nombreComida":"Tigrillo","cantidadCom":7,"id":6},{"nombreComida":"Llapingachos","cantidadCom":"5","id":8}]}
+{
+  "comidas": [
+    {
+      "nombreComida": "Encebollado",
+      "tipoComida": "Plato fuerte",
+      "nacionalidad": "Ecuatoriana",
+      "numeroPersonas": 4,
+      "picante": false,
+      "id": 1
+    },
+    {
+      "nombreComida": "Seco de pollo",
+      "tipoComida": "Plato fuerte",
+      "nacionalidad": "Ecuatoriana",
+      "numeroPersonas": 5,
+      "picante": false,
+      "id": 2
+    }
+  ]
+}
