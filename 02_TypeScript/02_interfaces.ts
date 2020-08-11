@@ -46,4 +46,3 @@ console.log(criss)
 // para no desperdiciar memoria en representar un tipo de dato
 
 
-
