@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {UsuarioService} from "./servicios/usuario.service";
 
 @Component({
   selector: 'aplicacion_nueva',
@@ -11,27 +12,52 @@ export class AppComponent {
   arregloPeliculas = [
     {
       id: 1,
-      url: "https://is4-ssl.mzstatic.com/image/thumb/Purple113/v4/5d/c4/1e/5dc41e7f-e6da-e3aa-5aea-0c9bb3e13d50/source/256x256bb.jpg",
-      descripcion: 'Descripcion1',
-      nombrePelicula: 'Playmobil'
+      url: "https://pbs.twimg.com/profile_images/727652546093813761/wsIRWa4h.jpg",
+      descripcion: 'El secuestro de la virgen de la montaña',
+      nombrePelicula: 'Torcoroma'
     },
     {
       id: 2,
-      url: "https://i2.wp.com/i274.photobucket.com/albums/jj275/PunkoJotaViL/Mac%20Appz-Gamez/Sims2.png",
-      descripcion: 'Descripcion2',
-      nombrePelicula: 'SIMS 2'
+      url: "https://pbs.twimg.com/profile_images/3628043916/42488f150daf8efc42aaa40a71b5b88d.png",
+      descripcion: 'Una historia de honor y sangre',
+      nombrePelicula: 'Ambel'
     },
     {
       id: 3,
-      url: "https://pbs.twimg.com/profile_images/3628043916/42488f150daf8efc42aaa40a71b5b88d.png",
-      descripcion: 'Descripcion3',
-      nombrePelicula: 'Ambel'
+      url: "https://i2.wp.com/i274.photobucket.com/albums/jj275/PunkoJotaViL/Mac%20Appz-Gamez/Sims2.png",
+      descripcion: 'La verdad no recuerdo xd',
+      nombrePelicula: 'SIMS 2'
     }
   ]
 
-  arregloNumeros = [1,2,3]
+  arregloNumeros = [1, 2, 3]
 
-  mensajeConsola(objeto: boolean){
-    console.log("Llego el evento", objeto)
+  // Inyectando dependencias en el componente principal
+  constructor(
+    private readonly _usuarioService: UsuarioService
+  ) {
   }
+
+  /* La siguiente función devuelve un observable, similar a una promesa con then y catch
+  * Pero en este caso, se tiene un '.suscribe' */
+  mensajeConsola(objeto: boolean) {
+    console.log("Llego el evento", objeto)
+    const observableTraerTodos = this._usuarioService.traerTodos()
+    observableTraerTodos.subscribe(
+      (data) => { // THEN
+        console.log(data)
+      },
+      (error) => { // CATCH
+        console.log(error)
+      }
+    )
+  }
+
+  /*
+    mensajeConsola(objeto: boolean){
+      console.log("Llego el evento", objeto)
+    }
+  */
+
 }
+

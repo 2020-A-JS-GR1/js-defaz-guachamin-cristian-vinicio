@@ -1,45 +1,43 @@
 <h1>Lista de peliculas</h1>
 
-<app-carta-pelicula>
-</app-carta-pelicula>
-
-<!--
+<!-- Directiva ngFor -->
 <p *ngFor="let numero of arregloNumeros">
   {{numero}}
 </p>
+<br><br>
 
-<app-carta-pelicula
-  urlImagen="https://is4-ssl.mzstatic.com/image/thumb/Purple113/v4/5d/c4/1e/5dc41e7f-e6da-e3aa-5aea-0c9bb3e13d50/source/256x256bb.jpg"
-  descripcion="Descripcion1"
-  nombreBoton="Like1"
-  (eventoDioClicEnBoton)="mensajeConsola($event)"
-  >
-</app-carta-pelicula>
-<br>
-
-<app-carta-pelicula
-  urlImagen="https://i2.wp.com/i274.photobucket.com/albums/jj275/PunkoJotaViL/Mac%20Appz-Gamez/Sims2.png"
-  descripcion="Descripcion2"
-  nombreBoton="Like2"
->
-</app-carta-pelicula>
--->
-<!--
+<!-- Directiva ngIf -->
 <p *ngIf="false">
   OCULTO
 </p>
--->
 
-<!--
 <div *ngFor="let pelicula of arregloPeliculas">
   <app-carta-pelicula
     [urlImagen]="pelicula.url"
     [descripcion]="pelicula.descripcion"
     [nombreBoton]="pelicula.nombrePelicula"
     (eventoDioClicEnBoton)="mensajeConsola($event)"
-    >
+  >
   </app-carta-pelicula>
 </div>
+
+
+<!--
+<app-carta-pelicula
+  urlImagen="https://pbs.twimg.com/profile_images/727652546093813761/wsIRWa4h.jpg"
+  descripcion="Descripcion 1"
+  nombreBoton="Like 1"
+  (eventoDioClicEnBoton)="mensajeConsola($event)"
+  (eventoDioClicEnImagen)="mensajeConsola($event)"
+  >
+</app-carta-pelicula>
+
+<br>
+
+<app-carta-pelicula
+  urlImagen="https://pbs.twimg.com/profile_images/3628043916/42488f150daf8efc42aaa40a71b5b88d.png"
+  descripcion="Descripcion 2"
+  nombreBoton="Like 2"
+>
+</app-carta-pelicula>
 -->
-
-
