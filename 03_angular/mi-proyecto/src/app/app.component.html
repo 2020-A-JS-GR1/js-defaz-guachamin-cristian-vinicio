@@ -1,20 +1,45 @@
-<h1>Mi aplicativo</h1>
-<h6>Titulo2</h6>
-<p>Párrafo</p>
-<ul> <!-- lista simple -->
-  <li>Papa</li>
-  <li>PCebolla</li>
-</ul>
-<ol> <!-- lista numerada -->
-  <li>A</li>
-  <li>B</li>
-  <li>C</li>
-</ol>
-<img
-  src="https://i.pinimg.com/originals/c1/d6/f7/c1d6f7fd0827609742bada5dc6f1d895.png"
-alt="">
+<h1>Lista de peliculas</h1>
 
-<!-- Achor ancla -->
-<a href="https://www.google.com"></a>
+<app-carta-pelicula>
+</app-carta-pelicula>
+
+<!--
+<p *ngFor="let numero of arregloNumeros">
+  {{numero}}
+</p>
+
+<app-carta-pelicula
+  urlImagen="https://is4-ssl.mzstatic.com/image/thumb/Purple113/v4/5d/c4/1e/5dc41e7f-e6da-e3aa-5aea-0c9bb3e13d50/source/256x256bb.jpg"
+  descripcion="Descripcion1"
+  nombreBoton="Like1"
+  (eventoDioClicEnBoton)="mensajeConsola($event)"
+  >
+</app-carta-pelicula>
 <br>
-<button>Mi primer botón</button>
+
+<app-carta-pelicula
+  urlImagen="https://i2.wp.com/i274.photobucket.com/albums/jj275/PunkoJotaViL/Mac%20Appz-Gamez/Sims2.png"
+  descripcion="Descripcion2"
+  nombreBoton="Like2"
+>
+</app-carta-pelicula>
+-->
+<!--
+<p *ngIf="false">
+  OCULTO
+</p>
+-->
+
+<!--
+<div *ngFor="let pelicula of arregloPeliculas">
+  <app-carta-pelicula
+    [urlImagen]="pelicula.url"
+    [descripcion]="pelicula.descripcion"
+    [nombreBoton]="pelicula.nombrePelicula"
+    (eventoDioClicEnBoton)="mensajeConsola($event)"
+    >
+  </app-carta-pelicula>
+</div>
+-->
+
+

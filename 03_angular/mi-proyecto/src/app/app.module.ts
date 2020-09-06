@@ -3,14 +3,17 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CartaPeliculaComponent } from './carta-pelicula/carta-pelicula.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CartaPeliculaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
