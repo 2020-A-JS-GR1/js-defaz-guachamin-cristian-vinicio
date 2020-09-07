@@ -1,20 +1,43 @@
-<h1>Mi aplicativo</h1>
-<h6>Titulo2</h6>
-<p>Párrafo</p>
-<ul> <!-- lista simple -->
-  <li>Papa</li>
-  <li>PCebolla</li>
-</ul>
-<ol> <!-- lista numerada -->
-  <li>A</li>
-  <li>B</li>
-  <li>C</li>
-</ol>
-<img
-  src="https://i.pinimg.com/originals/c1/d6/f7/c1d6f7fd0827609742bada5dc6f1d895.png"
-alt="">
+<h1>Lista de peliculas</h1>
 
-<!-- Achor ancla -->
-<a href="https://www.google.com"></a>
+<!-- Directiva ngFor -->
+<p *ngFor="let numero of arregloNumeros">
+  {{numero}}
+</p>
+<br><br>
+
+<!-- Directiva ngIf -->
+<p *ngIf="false">
+  OCULTO
+</p>
+
+<div *ngFor="let pelicula of arregloPeliculas">
+  <app-carta-pelicula
+    [urlImagen]="pelicula.url"
+    [descripcion]="pelicula.descripcion"
+    [nombreBoton]="pelicula.nombrePelicula"
+    (eventoDioClicEnBoton)="mensajeConsola($event)"
+  >
+  </app-carta-pelicula>
+</div>
+
+
+<!--
+<app-carta-pelicula
+  urlImagen="https://pbs.twimg.com/profile_images/727652546093813761/wsIRWa4h.jpg"
+  descripcion="Descripcion 1"
+  nombreBoton="Like 1"
+  (eventoDioClicEnBoton)="mensajeConsola($event)"
+  (eventoDioClicEnImagen)="mensajeConsola($event)"
+  >
+</app-carta-pelicula>
+
 <br>
-<button>Mi primer botón</button>
+
+<app-carta-pelicula
+  urlImagen="https://pbs.twimg.com/profile_images/3628043916/42488f150daf8efc42aaa40a71b5b88d.png"
+  descripcion="Descripcion 2"
+  nombreBoton="Like 2"
+>
+</app-carta-pelicula>
+-->
