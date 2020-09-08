@@ -1,13 +1,14 @@
-import {Component} from '@angular/core';
-import {UsuarioService} from "./servicios/usuario.service";
+import {Component, OnInit} from '@angular/core';
+import {UsuarioService} from "./servicios/http/usuario.service";
 
 @Component({
   selector: 'aplicacion_nueva',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'mi-proyecto';
+  habilitado = true
 
   arregloPeliculas = [
     {
@@ -30,7 +31,11 @@ export class AppComponent {
     }
   ]
 
+  arregloUsuarios = [];
+
   arregloNumeros = [1, 2, 3]
+
+  arregloObservables = []
 
   // Inyectando dependencias en el componente principal
   constructor(
@@ -40,7 +45,7 @@ export class AppComponent {
 
   /* La siguiente función devuelve un observable, similar a una promesa con then y catch
   * Pero en este caso, se tiene un '.suscribe' */
-  mensajeConsola(objeto: boolean) {
+/*  mensajeConsola(objeto: boolean) {
     console.log("Llego el evento", objeto)
     const observableTraerTodos = this._usuarioService.traerTodos()
     observableTraerTodos.subscribe(
@@ -51,7 +56,7 @@ export class AppComponent {
         console.log(error)
       }
     )
-  }
+  }*/
 
   /*
     mensajeConsola(objeto: boolean){
@@ -59,5 +64,60 @@ export class AppComponent {
     }
   */
 
+  ngOnInit() {
+    this.mensajeConsola(true)
+  }
+
+  mensajeConsola(objeto: boolean) {
+    console.log("Llego el evento", objeto)
+    const observableTraerTodos = this._usuarioService.traerTodos()
+    // const suscripcion = observableTraerTodos.subscribe(
+    observableTraerTodos.subscribe(
+      (data) => { // THEN TRY
+        this.arregloUsuarios = data as any[]
+        console.log(data)
+      },
+      (error) => { // CATCH
+        console.log(error)
+      }
+    )
+    // this.arregloObservables.push(suscripcion)
+    // suscripcion.unsubscribe()
+  }
+
+  crearUsuario(){
+    const usuarioNuevo = {
+      cedula: '1234567895',
+      nombre: 'Naruto',
+      apellido: 'Uzumaki'
+    }
+    const observableCrearUsuario = this._usuarioService.crear(usuarioNuevo)
+    observableCrearUsuario.subscribe(
+      (datos) => { // THEN TRY
+        console.log('Nuevo usuario: ', datos)
+        // Para popular una tabla, volver a llamar al backend de nuevo
+        this.mensajeConsola(true)
+      },
+      (error) => { // CATCH
+        console.log(error)
+      }
+    )
+
+  }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

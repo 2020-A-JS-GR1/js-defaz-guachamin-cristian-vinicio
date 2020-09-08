@@ -1,17 +1,17 @@
-<h1>Lista de peliculas</h1>
+<!--<h1>Lista de peliculas</h1>-->
 
 <!-- Directiva ngFor -->
-<p *ngFor="let numero of arregloNumeros">
+<!--<p *ngFor="let numero of arregloNumeros">
   {{numero}}
 </p>
-<br><br>
+<br><br>-->
 
 <!-- Directiva ngIf -->
-<p *ngIf="false">
+<!--<p *ngIf="false">
   OCULTO
-</p>
+</p>-->
 
-<div *ngFor="let pelicula of arregloPeliculas">
+<!--<div *ngFor="let pelicula of arregloPeliculas">
   <app-carta-pelicula
     [urlImagen]="pelicula.url"
     [descripcion]="pelicula.descripcion"
@@ -21,6 +21,14 @@
   </app-carta-pelicula>
 </div>
 
+<div *ngFor="let usuario of arregloUsuarios">
+  {{usuario["nombre"]}}
+</div>
+
+<br><br>
+<button (click)="crearUsuario()">
+  Crear usuario
+</button>-->
 
 <!--
 <app-carta-pelicula
@@ -41,3 +49,61 @@
 >
 </app-carta-pelicula>
 -->
+
+<!--<button (click)="habilitado = !habilitado">
+  {{habilitado ? 'Habilitado' : 'Deshabilitado'}}
+</button>
+
+<app-carta-pelicula *ngIf="habilitado">
+
+</app-carta-pelicula>-->
+
+<div *ngFor="let usuario of arregloUsuarios">
+  {{usuario["nombre"]}}
+</div>
+
+<br>
+<ul>
+  <li>
+    <a [routerLink]="['inicio']">
+      Ir Inicio
+    </a>
+  </li>
+  <li>
+    <a [routerLink]="['login']">
+      Ir Login
+    </a>
+  </li>
+
+</ul>
+
+<router-outlet>
+
+</router-outlet>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
