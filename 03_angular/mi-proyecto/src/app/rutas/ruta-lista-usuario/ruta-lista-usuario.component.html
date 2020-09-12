@@ -1,0 +1,20 @@
+<p>Lista de usuarios</p>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Nombre</th>
+    <th>Cedula</th>
+    <th>Acciones</th>
+  </tr>
+  <tr *ngFor="let usuario of arregloUsuarios">
+    <td>{{usuario.id}}</td>
+    <td>{{usuario["nombre"]}}</td>
+    <td>{{usuario["cedula"]}}</td>
+    <td>
+      <!--Cambio de ruta con código-->
+      <button (click)="irAEditarUsuario(usuario.id)">Editar</button>
+      <button (click)="eliminarUsuario(usuario.id)">Eliminar</button>
+    </td>
+  </tr>
+</table>
