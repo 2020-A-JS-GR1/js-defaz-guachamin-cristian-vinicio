@@ -1,0 +1,65 @@
+<!-- ngSubmit: eventBindig que ejecuta la funcionn crearUsuario -->
+<form #formularioUsuario="ngForm"
+      (ngSubmit)="crearUsuario(formularioUsuario)">
+
+  <div>
+    <label for="nombreId">Nombre</label>
+    <input id="nombreId"
+           type="text"
+           name="nombre"
+           [(ngModel)]="nombreModelo"
+           required
+           minlength="3"
+           #nombreCampo="ngModel"
+    >
+    <br>
+    <div *ngIf="nombreCampo.touched && nombreCampo.errors">
+      <p *ngIf="nombreCampo.errors.required">
+        Error: Campo requerido
+      </p>
+      <p *ngIf="nombreCampo.errors.minlength">
+        Error: Longitud minima 3
+      </p>
+    </div>
+
+
+    <!--
+    Validaciones:
+    minlength="3"
+    maxlength="10"
+    Pattern: valida xon expresión regular
+    email: para correos -->
+  </div>
+  <!-- [(ngModel)]=""  Solo para Angular
+  Lo que está dentro de "" no es lo mismo que id: nombreId-->
+  <br>
+  <div>
+    <label for="cedulaId">Cedula</label>
+    <input id="cedulaId"
+           type="text"
+           name="cedula"
+           [(ngModel)]="cedulaModelo"
+           required>
+  </div>
+  <br>
+  <div>
+    <label for="estadoCivilId">Estado Civil</label>
+    <select name="estadoCivil"
+            id="estadoCivilId"
+            [(ngModel)]="estadoCivilModelo"
+            required>
+      <option value="Soltero">E.S. Soltero</option>
+      <option value="Casado">E.S. Casado</option>
+      <option value="Divorciado">E.S. Casado</option>
+      <option value="Viudo">E.S. Casado</option>
+      <option value="Unión libre">E.S. Unión libre</option>
+    </select>
+  </div>
+  <br>
+
+  <button type="button" (click)="ayuda()">Boton (ayuda)</button>
+  <button type="submit" [disabled]="!formularioUsuario.form.valid">Submit</button>
+  <button type="reset">Reset</button>
+  <button>Defecto (sumbit)</button>
+
+</form>
