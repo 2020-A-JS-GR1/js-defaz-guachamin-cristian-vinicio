@@ -5,6 +5,7 @@ import {RutaLoginComponent} from "./rutas/ruta-login/ruta-login.component";
 import {RutaUsuarioComponent} from "./rutas/ruta-usuario/ruta-usuario.component";
 import {RutaListaUsuarioComponent} from "./rutas/ruta-lista-usuario/ruta-lista-usuario.component";
 import {RutaEditarUsuarioComponent} from "./rutas/ruta-editar-usuario/ruta-editar-usuario.component";
+import {RutaCrearUsuarioComponent} from "./rutas/ruta-crear-usuario/ruta-crear-usuario.component";
 
 const routes: Routes = [
   {
@@ -25,7 +26,7 @@ const routes: Routes = [
       },
       {
         path: 'crear',
-        component: RutaUsuarioComponent
+        component: RutaCrearUsuarioComponent
       },
       {
         path: 'editar/:id',
