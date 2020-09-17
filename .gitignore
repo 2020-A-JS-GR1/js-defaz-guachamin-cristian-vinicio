@@ -2,11 +2,13 @@
 .idea/
 /01_JavaScript/node_modules/
 ./01_JavaScript/package-lock.json
-/00_Deberes/04_CRUD/node_modules/
-/00_Deberes/04_CRUD/package-lock.json
+/I_Deberes/04_CRUD/node_modules/
+/I_Deberes/04_CRUD/package-lock.json
 ./node_modules
 /node_modules/
 ./package-lock.json
 ./package.json
 
 03_angular/mi-proyecto/node_modules/
+
+I_Deberes/04_CRUD/node_modules/
