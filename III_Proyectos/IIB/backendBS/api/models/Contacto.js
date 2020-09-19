@@ -13,8 +13,8 @@ module.exports = {
   attributes: {
     direccion: {type: 'string'},
     ciudad: {type: 'string'},
-    celular: {type: 'string'},
-    convencional: {type: 'string'},
+    celular: {type: 'string', maxLength: 15},
+    convencional: {type: 'string',  maxLength: 15},
     urlFacebook: {type: 'string'},
     organizacion: {type: 'string'},
 

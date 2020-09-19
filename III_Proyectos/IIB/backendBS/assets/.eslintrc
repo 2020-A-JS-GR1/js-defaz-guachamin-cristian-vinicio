@@ -40,11 +40,11 @@
     // ...etc.
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    // Make sure backend globals aren't indadvertently tolerated in our client-side JS:
+    // Make sure backendBS globals aren't indadvertently tolerated in our client-side JS:
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     "sails": false,
     "_": false
-    // ...and any other backend globals (e.g. `"Organization": false`)
+    // ...and any other backendBS globals (e.g. `"Organization": false`)
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   },
 

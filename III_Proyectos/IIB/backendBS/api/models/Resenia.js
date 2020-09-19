@@ -17,6 +17,7 @@ module.exports = {
     // Relacion 1-1 Resenia < Anunciante
     idAnunciante: {
       model: 'Anunciante',
+      columnType: 'tinyint',
       required: true,
       unique: true
     },
@@ -24,6 +25,7 @@ module.exports = {
     // Relación 1-1 Resenia < Cliente
     idCliente: {
       model: 'Cliente',
+      columnType: 'tinyint',
       required: true,
       unique: true
     }

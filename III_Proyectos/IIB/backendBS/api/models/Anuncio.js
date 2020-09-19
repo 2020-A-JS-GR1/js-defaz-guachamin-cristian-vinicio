@@ -13,7 +13,7 @@ module.exports = {
   attributes: {
     fechaAnuncio: {type: 'string'},
     descripcionAnuncio: {type: 'string'},
-    costo: {type: 'number', columnType: 'float'},
+    costo: {type: 'number', columnType: 'double'},
     estadoAnuncio: {
       type: 'string',
       isIn: ['A', 'I'],
@@ -23,6 +23,7 @@ module.exports = {
     // Relacion 1-1 Anuncio < Anunciante
     idAnunciante: {
       model: 'Anunciante',
+      columnType: 'tinyint',
       unique: true, // Un solo anunciante por anuncio
       required: true
     },
@@ -30,6 +31,7 @@ module.exports = {
     // Relacion 1-1 Anuncio < Servicio
     idServicio: {
       model: 'Servicio',
+      columnType: 'tinyint',
       unique: true, // Un solo servicio por anuncio
       required: true
     },
