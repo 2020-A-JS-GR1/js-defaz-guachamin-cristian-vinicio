@@ -13,8 +13,8 @@ module.exports = {
   attributes: {
     contrasenia: {type: 'string'},
     correo: {type: 'string'},
-    nombre: {type: 'string'},
-    apellido: {type: 'string'},
+    nombre: {type: 'string',  maxLength: 30},
+    apellido: {type: 'string',  maxLength: 30},
 
     // Relacion 0-1 Usuario > Cliente
     cliente: {

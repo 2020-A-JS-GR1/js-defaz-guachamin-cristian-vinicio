@@ -11,13 +11,14 @@ module.exports = {
   tableName: 'Anunciante',
 
   attributes: {
-    reputacion: {type: 'number'},
+    reputacion: {type: 'number', columnType: 'tinyint'},
     ocupacion: {type: 'string'},
-    experiencia: {type: 'number'},
+    experiencia: {type: 'number', columnType: 'tinyint'},
 
     // Relacion 1-1 Anunciante < Usuario
     idUsuario: {
       model: 'Usuario',
+      columnType: 'tinyint',
       unique: true, // Un solo Usuario por anunciante
       required: true
     },
@@ -25,6 +26,7 @@ module.exports = {
     // Relacion 1-1 Anunciante < Contacto
     idContacto: {
       model: 'Contacto',
+      columnType: 'tinyint',
       unique: true, // Un solo contacto por anunciante
       required: true
     },

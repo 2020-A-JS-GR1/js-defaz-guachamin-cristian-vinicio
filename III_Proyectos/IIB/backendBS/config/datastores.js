@@ -34,7 +34,7 @@ module.exports.datastores = {
 
   default: {
     adapter: 'sails-mysql',
-    url: 'mysql://criss2020:clau2020@localhost:32783/BuhoServices_BD',
+    url: 'mysql://criss2020:clau2020@localhost:32769/BuhoServices_BD',
   },
     /***************************************************************************
     *                                                                          *

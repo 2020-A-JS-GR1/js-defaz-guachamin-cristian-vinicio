@@ -15,6 +15,7 @@ module.exports = {
     // Relacion 1-1 Cliente < Usuario
     idUsuario: {
       model: 'Usuario',
+      columnType: 'tinyint',
       unique: true, // Un solo usuario por cliente
       required: true
     },

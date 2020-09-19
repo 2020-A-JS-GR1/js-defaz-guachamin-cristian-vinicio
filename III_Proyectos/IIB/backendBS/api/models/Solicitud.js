@@ -16,12 +16,14 @@ module.exports = {
     // Relacion n-0 Solicitud < Cliente
     idCliente: {
       model: 'Cliente',
+      columnType: 'tinyint',
       required: true
     },
 
     // Relacion n-1 Solicitud < Anuncio
     idAnuncio: {
       model: 'Anuncio',
+      columnType: 'tinyint',
       required: true
     }
 

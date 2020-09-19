@@ -14,7 +14,7 @@ module.exports = {
     descripcionServicio: {type: 'string'},
     urlIcono: {type: 'string'},
 
-    // Relacion 1-n Servicio > Anuncio
+    // Relacion 1-n Servicio > Anuncios
     anuncios: {
       collection: 'Anuncio',
       via: 'idServicio'
