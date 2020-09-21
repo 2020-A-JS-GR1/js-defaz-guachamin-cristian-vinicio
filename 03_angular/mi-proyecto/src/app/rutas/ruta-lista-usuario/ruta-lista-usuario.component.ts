@@ -10,6 +10,7 @@ import {Router} from "@angular/router";
 export class RutaListaUsuarioComponent implements OnInit {
 
   arregloUsuarios = [];
+  busquedaModelo = ''
 
   constructor(
     private readonly _usuarioService: UsuarioService,
@@ -39,7 +40,29 @@ export class RutaListaUsuarioComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const observableTraerTodos = this._usuarioService.traerTodos();
+    this.filtrarArreglo()
+  }
+
+  filtrarArreglo(){
+    const consulta = {
+      or: [
+        {
+          nombre: {
+            contains: this.busquedaModelo
+          }
+        },
+        {
+          cedula: {
+            contains: this.busquedaModelo
+          }
+        }
+      ]
+
+    }
+    const consultaString = 'where=' + JSON.stringify(consulta)
+    // Lo que sigue, fue movido del oninit a filtrarArreglo
+    const observableTraerTodos = this._usuarioService
+      .traerTodos(this.busquedaModelo != '' ? consultaString : '')
     observableTraerTodos
       .subscribe(
         (usuarios: any[]) => {

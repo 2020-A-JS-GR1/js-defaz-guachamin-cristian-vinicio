@@ -74,7 +74,7 @@
       Ir Login
     </a>
   </li>
-  <li>
+  <li *ngIf="_authService.estaAutenticado">
     <a [routerLink]="['usuario']">
       Usuarios
     </a>

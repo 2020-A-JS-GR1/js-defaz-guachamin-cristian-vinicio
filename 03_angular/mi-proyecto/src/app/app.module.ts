@@ -15,6 +15,10 @@ import { RutaCrearUsuarioComponent } from './rutas/ruta-crear-usuario/ruta-crear
 import { RutaEditarUsuarioComponent } from './rutas/ruta-editar-usuario/ruta-editar-usuario.component';
 import { FormularioUsuarioComponent } from './componentes/formularios/formulario-usuario/formulario-usuario.component';
 import {FormsModule} from "@angular/forms";
+import {AuthService} from "./servicios/auth/auth.service";
+import {EstaLogueadoGuard} from "./servicios/guards/esta-logueado.guard";
+import {EsAdministradorGuard} from "./servicios/guards/es-administrador.guard";
+import {EsSupervisorGuard} from "./servicios/guards/es-supervisor.guard";
 
 @NgModule({
   declarations: [ // Componentes
@@ -33,11 +37,15 @@ import {FormsModule} from "@angular/forms";
     BrowserModule, // Importa las directivas ngFor y ngIf
     AppRoutingModule, // Para que funciones las rutas
     HttpClientModule, // Importa el HttpClient inyectado al servicio de Usuario
-    FormsModule // Permite la funcionalidad de los formularios Template
+    FormsModule, // Permite la funcionalidad de los formularios Template
 
   ],
   providers: [ // Servicios
-    UsuarioService
+    UsuarioService,
+    AuthService, // Login
+    EstaLogueadoGuard,
+    EsAdministradorGuard,
+    EsSupervisorGuard
   ],
   bootstrap: [AppComponent]
 })
