@@ -1,5 +1,11 @@
 <p>Lista de usuarios</p>
 
+<label for="busquedaId"></label>
+<input id="busquedaId" name="busqueda" type="text" [(ngModel)]="busquedaModelo">
+<br>
+<button (click)="filtrarArreglo()">Buscar</button>
+<br>
+
 <table>
   <tr>
     <th>ID</th>

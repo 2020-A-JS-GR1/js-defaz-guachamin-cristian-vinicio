@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {UsuarioService} from "./servicios/http/usuario.service";
+import {AuthService} from "./servicios/auth/auth.service";
 
 @Component({
   selector: 'aplicacion_nueva',
@@ -33,15 +34,16 @@ export class AppComponent implements OnInit{
 
   arregloUsuarios = [];
 
+  // Inyectando dependencias en el componente principal
+  constructor(
+    private readonly _usuarioService: UsuarioService,
+    readonly _authService: AuthService
+  ) {
+  }
+
   arregloNumeros = [1, 2, 3]
 
   arregloObservables = []
-
-  // Inyectando dependencias en el componente principal
-  constructor(
-    private readonly _usuarioService: UsuarioService
-  ) {
-  }
 
   /* La siguiente función devuelve un observable, similar a una promesa con then y catch
   * Pero en este caso, se tiene un '.suscribe' */
