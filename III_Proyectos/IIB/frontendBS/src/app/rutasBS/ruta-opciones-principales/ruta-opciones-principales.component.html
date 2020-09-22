@@ -12,7 +12,7 @@
         <p class="lead">Más de 40 servicios a su disposición</p>
         <hr class="my-4">
         <a class="btn btn-outline-dark btn-lg"
-           routerLink="/anuncios"
+           [routerLink]="['/anuncios','servicios']"
            role="button">Solicítalo <b>Aquí</b></a>
       </div>
     </div>
@@ -27,4 +27,3 @@
     </div>
   </div>
 </div>
-<router-outlet></router-outlet>

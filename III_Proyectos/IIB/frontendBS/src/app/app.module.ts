@@ -14,6 +14,9 @@ import { RutaListaServiciosComponent } from './rutasBS/ruta-lista-servicios/ruta
 import { RutaListaAnunciosComponent } from './rutasBS/ruta-lista-anuncios/ruta-lista-anuncios.component';
 import { NavbarPrincipalComponent } from './componentesBS/navbar-principal/navbar-principal.component';
 import { NavbarInicialComponent } from './componentesBS/navbar-inicial/navbar-inicial.component';
+import { RutaAnunciosComponent } from './rutasBS/ruta-anuncios/ruta-anuncios.component';
+import { TarjetaServicioComponent } from './componentesBS/tarjeta-servicio/tarjeta-servicio.component';
+import { TarjetaAnuncioServComponent } from './componentesBS/tarjeta-anuncio-serv/tarjeta-anuncio-serv.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { NavbarInicialComponent } from './componentesBS/navbar-inicial/navbar-in
     RutaListaServiciosComponent,
     RutaListaAnunciosComponent,
     NavbarPrincipalComponent,
-    NavbarInicialComponent
+    NavbarInicialComponent,
+    RutaAnunciosComponent,
+    TarjetaServicioComponent,
+    TarjetaAnuncioServComponent
   ],
   imports: [
     BrowserModule,
