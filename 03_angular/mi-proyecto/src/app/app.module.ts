@@ -19,6 +19,10 @@ import {AuthService} from "./servicios/auth/auth.service";
 import {EstaLogueadoGuard} from "./servicios/guards/esta-logueado.guard";
 import {EsAdministradorGuard} from "./servicios/guards/es-administrador.guard";
 import {EsSupervisorGuard} from "./servicios/guards/es-supervisor.guard";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from "@angular/material/button";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {ButtonModule} from "primeng/button";
 
 @NgModule({
   declarations: [ // Componentes
@@ -38,6 +42,10 @@ import {EsSupervisorGuard} from "./servicios/guards/es-supervisor.guard";
     AppRoutingModule, // Para que funciones las rutas
     HttpClientModule, // Importa el HttpClient inyectado al servicio de Usuario
     FormsModule, // Permite la funcionalidad de los formularios Template
+    BrowserAnimationsModule, // Animaciones
+    MatButtonModule, // Boton de angular material
+    NgbModule,
+    ButtonModule // Boton ngprime
 
   ],
   providers: [ // Servicios
