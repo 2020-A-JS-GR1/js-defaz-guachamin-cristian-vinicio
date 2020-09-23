@@ -82,9 +82,32 @@
 
 </ul>
 
-<router-outlet>
+<div>
+  <br/>
+  <button mat-button color="accent">
+    Boton material
+  </button>
+  <br/><br/>
+  <button type="button"
+          class="btn btn btn-outline-secondary mr-2"
+          placement="top"
+          ngbTooltip="Cuidado con verme feo">
+    Tooltip on top
+    <p
+      placement="bottom"
+      ngbTooltip="Otro mas">
+      Ejemplo
+    </p>
+  </button>
+  <br/><br/>
+  <p-button
+    label="Hola desde PrimeNG"
+    class="p-button-secondary">
+  </p-button>
+  <br>
+</div>
 
-</router-outlet>
+<router-outlet></router-outlet>
 
 
 
