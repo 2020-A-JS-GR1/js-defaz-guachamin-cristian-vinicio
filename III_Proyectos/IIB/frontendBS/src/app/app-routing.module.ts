@@ -5,6 +5,8 @@ import {RutaCrearUsuarioComponent} from "./rutasBS/ruta-crear-usuario/ruta-crear
 import {RutaLoginUsuarioComponent} from "./rutasBS/ruta-login-usuario/ruta-login-usuario.component";
 import {RutaOpcionesPrincipalesComponent} from "./rutasBS/ruta-opciones-principales/ruta-opciones-principales.component";
 import {RutaListaAnunciosComponent} from "./rutasBS/ruta-lista-anuncios/ruta-lista-anuncios.component";
+import {RutaAnunciosComponent} from "./rutasBS/ruta-anuncios/ruta-anuncios.component";
+import {RutaListaServiciosComponent} from "./rutasBS/ruta-lista-servicios/ruta-lista-servicios.component";
 
 const routes: Routes = [
   {
@@ -24,8 +26,23 @@ const routes: Routes = [
     path: 'opciones'
   },
   {
-    component: RutaListaAnunciosComponent,
-    path: 'anuncios'
+    component: RutaAnunciosComponent,
+    path: 'anuncios',
+    children: [
+      {
+        path: 'servicios',
+        component: RutaListaAnunciosComponent
+      },
+      {
+        path: 'anunciantes',
+        component: RutaListaServiciosComponent
+      },
+      {
+        path:'',
+        redirectTo: 'servicios',
+        pathMatch: 'full'
+      }
+    ]
   }
 ];
 

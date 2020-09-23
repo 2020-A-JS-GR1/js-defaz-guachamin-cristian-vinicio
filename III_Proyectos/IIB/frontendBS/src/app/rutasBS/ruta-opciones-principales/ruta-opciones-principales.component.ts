@@ -10,6 +10,7 @@ export class RutaOpcionesPrincipalesComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }
