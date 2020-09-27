@@ -1,0 +1,54 @@
+<div class="container" *ngIf="mostrarFormulario">
+  <div class="row">
+    <div class="col-lg-4">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <button class="btn btn-outline-secondary" type="button"
+                  (click)="obtenerFiltrarIngrediente()">Buscar
+          </button>
+        </div>
+        <label for="busquedaId"> </label>
+        <input id="busquedaId" name="busqueda" class="form-control"
+               type="text" [(ngModel)]="busquedaModeloIng">
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <button type="button"
+              class="btn btn-success"
+              (click)="irACrearNuevoIngrediente()">
+        <!--  [routerLink]="['/comidas/ingredientes','crear']-->
+        Crear nuevo ingrediente
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <table class="table table-hover table-sm">
+        <thead class="table-dark">
+        <tr>
+          <th>id</th>
+          <th>Nombre Ingrediente</th>
+          <th>Tipo de ingrediente</th>
+          <th>Cantidad</th>
+          <th>Refrigeración</th>
+          <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let ingrediente of arregloIngredientesBD">
+          <td>{{ingrediente.id}}</td>
+          <td>{{ingrediente["nombreIngrediente"]}}</td>
+          <td>{{ingrediente["tipoIngrediente"]}}</td>
+          <td>{{ingrediente["cantidadIngrediente"]}}</td>
+          <td>{{ingrediente["refrigeracion"]}}</td>
+          <td>
+            <button type="button" (click)="irAEditarIngrediente(ingrediente.id)">Editar</button>
+            <button type="button">Eliminar</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+

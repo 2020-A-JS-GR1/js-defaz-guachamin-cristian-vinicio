@@ -1,0 +1,16 @@
+<div class="row" >
+  <div class="col-lg-6">
+    <app-form-comida
+      (informacionValidada)="crearNuevaComida($event)">
+    </app-form-comida>
+  </div>
+  <div class="col-lg-6" *ngIf="comidaCreada">
+    {{"Ingrese ingredientes para: "+datosNuevaComidaCreada.nombreComida}}
+    {{"id xd: " +datosNuevaComidaCreada.id}}
+
+    <br>
+    <app-form-ingrediente
+      [ComidaInput]="datosNuevaComidaCreada.id">
+    </app-form-ingrediente>
+  </div>
+</div>
