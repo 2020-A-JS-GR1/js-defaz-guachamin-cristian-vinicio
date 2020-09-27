@@ -24,6 +24,7 @@ import {MatButtonModule} from "@angular/material/button";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {ButtonModule} from "primeng/button";
 
+
 @NgModule({
   declarations: [ // Componentes
     AppComponent,
@@ -46,6 +47,7 @@ import {ButtonModule} from "primeng/button";
     MatButtonModule, // Boton de angular material
     NgbModule,
     ButtonModule // Boton ngprime
+
 
   ],
   providers: [ // Servicios
