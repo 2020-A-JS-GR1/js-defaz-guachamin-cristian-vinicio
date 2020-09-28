@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <button class="btn btn-secondary" type="button"
+                  (click)="obtenerFiltrarComidas()">Buscar
+          </button>
+        </div>
+        <label for="busquedaId"> </label>
+        <input id="busquedaId" name="busqueda" class="form-control"
+               type="text" [(ngModel)]="busquedaModelo">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <table class="table table-hover table-sm">
+        <thead class="table-dark">
+        <tr>
+          <th>id</th>
+          <th>Nombre Comida</th>
+          <th>Tipo de comida</th>
+          <th>Nacionalidad</th>
+          <th>Numero Personas</th>
+          <th>Picante</th>
+          <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let comida of arregloComidasBD">
+          <td>{{comida.id}}</td>
+          <td>{{comida["nombreComida"]}}</td>
+          <td>{{comida["tipoComida"]}}</td>
+          <td>{{comida["nacionalidad"]}}</td>
+          <td>{{comida["numeroPersonas"]}}</td>
+          <td>{{comida["picante"]}}</td>
+          <td>
+            <button type="button" class="btn btn btn-success"
+                    (click)="irAEditarComida(comida.id)">Editar
+            </button>
+            <button type="button" class="btn btn btn-secondary"
+                    (click)="irADetalleIngredientes(comida.id)">Ver ingredientes
+            </button>
+            <button type="button" class="btn btn btn-danger"
+                    (click)="eliminarComida(comida.id)">Eliminar
+            </button>
+
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

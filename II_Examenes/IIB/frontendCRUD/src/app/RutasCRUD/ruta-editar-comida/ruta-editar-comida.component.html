@@ -1,0 +1,14 @@
+<!-- Directiva ngIf para renderizar  el formulario solo si lo mostramos -->
+<div *ngIf="mostrarFormulario">
+  <div>
+    <p>Editando<b> {{comida.nombreComida}}</b></p>
+  </div>
+  <app-form-comida
+    [nombreComidaInput]="comida.nombreComida"
+    [tipoComidaInput]="comida.tipoComida"
+    [nacionalidadInput]="comida.nacionalidad"
+    [numPersonasInput]="comida.numeroPersonas"
+    [picanteInput]="comida.picante"
+    (informacionValidada)="editarComida($event)">
+  </app-form-comida>
+</div>
