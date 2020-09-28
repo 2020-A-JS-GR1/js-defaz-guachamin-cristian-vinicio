@@ -24,7 +24,6 @@ export class RutaListaIngredientesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //this.obtenerFiltrarIngrediente()
     const obsRuta = this._activatedRoute.params
     obsRuta
       .subscribe(
@@ -70,7 +69,6 @@ export class RutaListaIngredientesComponent implements OnInit {
           }
         }
       ]
-
     }
     const consultaString = 'where=' + JSON.stringify(consultaIng)
     const obsIngrediente = this._ingredienteService.obtenerIngredientes(
@@ -94,6 +92,20 @@ export class RutaListaIngredientesComponent implements OnInit {
   irACrearNuevoIngrediente(){
     const ruta = ["/comidas/ingredientes", "crear", this.idComidaParaIngredientes];
     this._router.navigate(ruta).then(x => x)
+  }
+
+  eliminarIngrediente(idIngrediente: number){
+    const obsEliminarIngrediente = this._ingredienteService.eliminarIngredienteServicio(idIngrediente)
+    obsEliminarIngrediente.subscribe(
+      () => {
+        const indice = this.arregloIngredientesBD
+          .findIndex( ingrediente => ingrediente.id === idIngrediente);
+        this.arregloIngredientesBD.splice(indice,1);
+      },
+      (error) => {
+        console.log("Error: ", error);
+      }
+    )
   }
 
 }

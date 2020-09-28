@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {ComidaService} from "../../ServiciosCRUD/comida.service";
 
@@ -16,14 +16,15 @@ export class RutaEditarComidaComponent implements OnInit {
     private readonly _comidaService: ComidaService,
     private readonly _activatedRoute: ActivatedRoute,
     private readonly _router: Router
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     const obsRuta = this._activatedRoute.params
     obsRuta
       .subscribe(
-        (parametros) => { // Solo try, porque no fallará y es un parámetro
-          const id = Number(parametros.id) // el 'id' fue definifo en app routing modules
+        (parametros) => {
+          const id = Number(parametros.id)
           const obsComidas = this._comidaService
             .obtenerUnoPorId(id);
           obsComidas
@@ -40,15 +41,15 @@ export class RutaEditarComidaComponent implements OnInit {
       )
   }
 
-  llenarFormularioConDatosDeUsuario(){
+  llenarFormularioConDatosDeUsuario() {
     this.mostrarFormulario = true
   }
 
-  editarComida(comida){
+  editarComida(comida) {
     const obsEditarUsuario = this._comidaService.editarComida(comida, this.comida.id)
     obsEditarUsuario
       .subscribe(
-        (datos)=>{
+        (datos) => {
           const url = ['/comidas', 'lista']
           this._router.navigate(url).then(x => x)
         },

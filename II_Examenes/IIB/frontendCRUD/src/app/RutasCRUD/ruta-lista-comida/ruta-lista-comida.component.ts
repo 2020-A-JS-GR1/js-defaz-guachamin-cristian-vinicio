@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ComidaService} from "../../ServiciosCRUD/comida.service";
 import {Router} from "@angular/router";
 
@@ -15,13 +15,14 @@ export class RutaListaComidaComponent implements OnInit {
   constructor(
     private readonly _comidaService: ComidaService,
     private readonly _router: Router
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.obtenerFiltrarComidas()
   }
 
-  obtenerFiltrarComidas(){
+  obtenerFiltrarComidas() {
     const consulta = {
       or: [
         {
@@ -51,7 +52,7 @@ export class RutaListaComidaComponent implements OnInit {
       )
   }
 
-  irAEditarComida(idComida: number){
+  irAEditarComida(idComida: number) {
     const ruta = ["/comidas", "editar", idComida];
     this._router.navigate(ruta).then(x => x)
   }
@@ -61,13 +62,13 @@ export class RutaListaComidaComponent implements OnInit {
     this._router.navigate(ruta).then(x => x)
   }
 
-  eliminarComida(idComida: number){
+  eliminarComida(idComida: number) {
     const obsEliminarComida = this._comidaService.eliminarComida(idComida);
     obsEliminarComida.subscribe(
       () => {
         const indice = this.arregloComidasBD
-          .findIndex( comida => comida.id === idComida);
-        this.arregloComidasBD.splice(indice,1);
+          .findIndex(comida => comida.id === idComida);
+        this.arregloComidasBD.splice(indice, 1);
       },
       (error) => {
         console.log("Error: ", error);

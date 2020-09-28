@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-form-ingrediente',
@@ -12,21 +13,20 @@ export class FormIngredienteComponent implements OnInit {
   @Input() tipoIngredienteInput: string
   @Input() cantidadInput: number
   @Input() refrigeracionInput: string
-  @Input() ComidaInput: number // Aqui deberia estar el id de la nueva comida
 
   // Transfiere información del componente hijo (form) al padre (rutaCrear)
   @Output() informacionValidadaIngrediente: EventEmitter<any> = new EventEmitter<any>()
-  // Transferir idComida a RutaCrearIngrediente
-  // @Output() idDeMiComida: EventEmitter<any> = new EventEmitter<any>()
 
   // Variables modelo para crear (si estan vacias) o editar (si estan llenas)
   nombreIngredienteModelo: string
   tipoIngredienteModelo: string
   cantidadModelo: number
   refrigeracionModelo: string
-  idComidaModelo: number
 
-  constructor() { }
+  constructor(
+    private readonly _router: Router
+  ) {
+  }
 
   ngOnInit(): void {
     if (this.nombreIngredienteInput && this.tipoIngredienteInput
@@ -35,31 +35,19 @@ export class FormIngredienteComponent implements OnInit {
       this.tipoIngredienteModelo = this.tipoIngredienteInput
       this.cantidadModelo = this.cantidadInput
       this.refrigeracionModelo = this.refrigeracionInput
-      this.idComidaModelo = this.ComidaInput
     }
   }
 
   crearIngrediente(formualrioIngrediente) {
-    const data = {
-      nombreIngrediente: this.nombreIngredienteModelo,
-      tipoIngrediente: this.tipoIngredienteModelo,
-      cantidadIngrediente: this.cantidadModelo,
-      refrigeracion: this.refrigeracionModelo,
-      idComida: this.ComidaInput
-    }
-    console.log("Datos que voy a emitir")
-    console.log(data)
     this.informacionValidadaIngrediente.emit(
-      data
+      {
+        nombreIngrediente: this.nombreIngredienteModelo,
+        tipoIngrediente: this.tipoIngredienteModelo,
+        cantidadIngrediente: this.cantidadModelo,
+        refrigeracion: this.refrigeracionModelo,
+      }
     )
   }
 
-  // obtenerIdComida(formualrioIngrediente){
-  //   this.idDeMiComida.emit(
-  //     {
-  //       idComida: this.idComidaModelo
-  //     }
-  //   )
-  // }
 
 }

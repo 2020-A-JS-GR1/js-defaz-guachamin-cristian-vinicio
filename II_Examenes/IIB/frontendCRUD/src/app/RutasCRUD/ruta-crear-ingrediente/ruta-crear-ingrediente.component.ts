@@ -17,10 +17,10 @@ export class RutaCrearIngredienteComponent implements OnInit {
     private readonly _comidaService: ComidaService,
     private readonly _router: Router,
     private readonly _activatedRoute: ActivatedRoute
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
-    // Recibimos parametro enviado por el boton de agreagr ingrediente
     const obsRuta = this._activatedRoute.params
     obsRuta
       .subscribe(
@@ -31,16 +31,11 @@ export class RutaCrearIngredienteComponent implements OnInit {
   }
 
   crearNuevoIngrediente(nuevoIngrediente) {
-    console.log("Nuevo ingrediente a ingresar")
-    console.log(nuevoIngrediente)
-    console.log(this.idComidaNueva)
     nuevoIngrediente.idComida = this.idComidaNueva
-    console.log("Ingrediente a ingresar con ID")
-    console.log(nuevoIngrediente)
-    const obsCrearComida = this._ingredienteService.crearIngrediente(nuevoIngrediente);
+    const obsCrearComida = this._ingredienteService.crearIngredienteServicio(nuevoIngrediente);
     obsCrearComida.subscribe(
       (datos) => {
-        console.log(datos)
+        alert("Ingrediente creado correctamente")
         const url = ['/comidas/ingredientes', 'lista', this.idComidaNueva]
         this._router.navigate(url).then(x => x)
       },
@@ -48,21 +43,6 @@ export class RutaCrearIngredienteComponent implements OnInit {
         console.log("Error", error);
       }
     );
-  }
-
-    obtenerIdComida(nombreComida: string) {
-    const idNuevaComoda = this._comidaService
-      .obtenerDatosPorNombreComida(nombreComida)
-      idNuevaComoda
-      .subscribe(
-        (datos: any) => {
-          this.idComidaNueva= datos.id
-        },
-        (error) => {
-          console.log("Error obteniedo id", error);
-        }
-      )
-
   }
 
 }

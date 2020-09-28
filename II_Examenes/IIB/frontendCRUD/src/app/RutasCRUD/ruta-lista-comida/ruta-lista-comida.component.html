@@ -3,7 +3,7 @@
     <div class="col-lg-4">
       <div class="input-group mb-3">
         <div class="input-group-prepend">
-          <button class="btn btn-outline-secondary" type="button"
+          <button class="btn btn-secondary" type="button"
                   (click)="obtenerFiltrarComidas()">Buscar
           </button>
         </div>
@@ -36,9 +36,15 @@
           <td>{{comida["numeroPersonas"]}}</td>
           <td>{{comida["picante"]}}</td>
           <td>
-            <button type="button" (click)="irAEditarComida(comida.id)">Editar</button>
-            <button type="button" (click)="irADetalleIngredientes(comida.id)">Mostrar ingredientes</button>
-            <button type="button" class="btn btn btn-danger" (click)="eliminarComida(comida.id)">Eliminar</button>
+            <button type="button" class="btn btn btn-success"
+                    (click)="irAEditarComida(comida.id)">Editar
+            </button>
+            <button type="button" class="btn btn btn-secondary"
+                    (click)="irADetalleIngredientes(comida.id)">Ver ingredientes
+            </button>
+            <button type="button" class="btn btn btn-danger"
+                    (click)="eliminarComida(comida.id)">Eliminar
+            </button>
 
           </td>
         </tr>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {RutaListaComidaComponent} from "../ruta-lista-comida/ruta-lista-comida.component";
 
 @Component({
@@ -8,9 +8,8 @@ import {RutaListaComidaComponent} from "../ruta-lista-comida/ruta-lista-comida.c
 })
 export class RutaInicialComponent implements OnInit {
 
-  constructor(
-    public readonly _bm: RutaListaComidaComponent
-  ) { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

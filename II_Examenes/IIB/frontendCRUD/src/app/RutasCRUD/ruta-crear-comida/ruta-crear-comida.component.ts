@@ -9,9 +9,7 @@ import {Router} from "@angular/router";
 })
 export class RutaCrearComidaComponent implements OnInit {
 
-  comidaCreada = false
   datosNuevaComidaCreada
-
   constructor(
     private readonly _comidaService: ComidaService,
     private readonly _router: Router
@@ -24,13 +22,12 @@ export class RutaCrearComidaComponent implements OnInit {
   crearNuevaComida(nuevaComida) {
     const obsCrearComida = this._comidaService.crearComida(nuevaComida);
     obsCrearComida.subscribe(
-      (datos) => {
+      (datos:any) => {
+        alert("Comida creada correctamente")
         this.datosNuevaComidaCreada = datos
-        this.comidaCreada = true
-        // const url = ['/comidas', 'lista']
-        // this._router.navigate(url).then(x => x)
-        console.log(datos)
-       // this.obtenerIdComida(this.datosNuevaComidaCreada.nombreComida)
+        const url = ['/comidas/ingredientes', 'lista', datos.id]
+        this._router.navigate(url).then(x => x)
+
       },
       (error) => {
         console.log("Error", error);

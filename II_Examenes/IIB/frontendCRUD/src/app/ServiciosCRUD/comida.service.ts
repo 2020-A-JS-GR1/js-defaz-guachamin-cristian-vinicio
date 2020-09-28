@@ -16,10 +16,6 @@ export class ComidaService {
     return this._httpClient.get(this.url + '/Comidas/' + idComida)
   }
 
-  obtenerDatosPorNombreComida(nommbreComida: string){
-    return this._httpClient.get(this.url + '/Comidas?where={"nombreComida":"' + nommbreComida+'"}')
-  }
-
   obtenerComidas(consulta?: string) {
     return this._httpClient.get(this.url + "/Comidas?" + consulta) // Petición
   }
@@ -35,7 +31,7 @@ export class ComidaService {
     )
   }
 
-  eliminarComida(idComida: number){
+  eliminarComida(idComida: number) {
     return this._httpClient.delete(this.url + "/Comidas/" + idComida);
   }
 }

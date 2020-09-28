@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {IngredienteService} from "../../ServiciosCRUD/ingrediente.service";
 
@@ -16,7 +16,8 @@ export class RutaEditarIngredienteComponent implements OnInit {
     private readonly _ingredienteService: IngredienteService,
     private readonly _activatedRoute: ActivatedRoute,
     private readonly _router: Router
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     const obsRuta = this._activatedRoute.params
@@ -29,7 +30,14 @@ export class RutaEditarIngredienteComponent implements OnInit {
           obsIngredientes
             .subscribe(
               (ingrediente: any) => {
-                this.ingrediente = ingrediente
+                this.ingrediente = {
+                  "id": ingrediente.id,
+                  "nombreIngrediente": ingrediente.nombreIngrediente,
+                  "tipoIngrediente": ingrediente.tipoIngrediente,
+                  "cantidadIngrediente": ingrediente.cantidadIngrediente,
+                  "refrigeracion": ingrediente.refrigeracion,
+                  "idComida": ingrediente.idComida.id
+                }
                 this.llenarFormularioConDatosDeUsuario()
               },
               (error) => {
@@ -40,16 +48,24 @@ export class RutaEditarIngredienteComponent implements OnInit {
       )
   }
 
-  llenarFormularioConDatosDeUsuario(){
+  llenarFormularioConDatosDeUsuario() {
     this.mostrarFormulario = true
   }
 
-  editarIngrediente(comida){
-    const obsEditarUsuario = this._ingredienteService.editarIngrediente(comida, this.ingrediente.id)
+  editarIngrediente(ingredienteForm) {
+    const ingredienteActualizado = {
+      "id": ingredienteForm.id,
+      "nombreIngrediente": ingredienteForm.nombreIngrediente,
+      "tipoIngrediente": ingredienteForm.tipoIngrediente,
+      "cantidadIngrediente": ingredienteForm.cantidadIngrediente,
+      "refrigeracion": ingredienteForm.refrigeracion,
+      "idComida": this.ingrediente.idComida
+    }
+    const obsEditarUsuario = this._ingredienteService.editarIngredienteServicio(ingredienteActualizado, this.ingrediente.id)
     obsEditarUsuario
       .subscribe(
-        (datos)=>{
-          const url = ['/comidas/ingredientes', 'lista']
+        (datos) => {
+          const url = ['/comidas/ingredientes/lista/', this.ingrediente.idComida]
           this._router.navigate(url).then(x => x)
         },
         (error) => {

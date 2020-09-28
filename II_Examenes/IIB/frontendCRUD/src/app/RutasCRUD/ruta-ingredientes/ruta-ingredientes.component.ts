@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-ruta-ingredientes',
@@ -8,8 +7,8 @@ import {Router} from "@angular/router";
 })
 export class RutaIngredientesComponent implements OnInit {
 
-  constructor(
-  ) { }
+  constructor() {
+  }
 
   ngOnInit(): void {
 

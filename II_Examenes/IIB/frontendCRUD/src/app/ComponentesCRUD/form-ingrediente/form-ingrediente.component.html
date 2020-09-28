@@ -2,7 +2,7 @@
   <div class="col-6">
     <form #formIngrediente="ngForm"
           (ngSubmit)="crearIngrediente(formIngrediente)">
-
+      
       <div class="form-group">
         <label for="nombreId">Nombre ingrediente:</label>
         <input type="text" id="nombreId" name="nombreIngrediente"
@@ -11,7 +11,7 @@
       </div>
 
       <div class="form-group">
-        <label for="tipoId">Tipo:  </label>
+        <label for="tipoId">Tipo: </label>
         <select id="tipoId" name="tipoIngrediente" class="form-control"
                 [(ngModel)]="tipoIngredienteModelo" required>
           <option value="Carne/Embutido">Carne/Embutido</option>
@@ -30,7 +30,7 @@
       </div>
 
       <div class="form-group">
-        <label for="picanteId">Necesita refrigeración?  </label>
+        <label for="picanteId">Necesita refrigeración? </label>
         <select id="picanteId" name="refrigeracion"
                 class="form-control" required
                 [(ngModel)]="refrigeracionModelo">
@@ -38,7 +38,7 @@
           <option value="No">No</option>
         </select>
       </div>
-      <button type="submit" class="btn btn-success">Crear</button>
+      <button type="submit" class="btn btn-success">Guardar cambios</button>
       <button type="reset" class="btn btn-secondary">Limpiar</button>
     </form>
   </div>

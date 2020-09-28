@@ -17,6 +17,7 @@ export class FormComidaComponent implements OnInit {
   // Transfiere información del componente hijo (form) al padre (rutaCrear)
   @Output() informacionValidada: EventEmitter<any> = new EventEmitter<any>()
 
+
   // Variables modelo para crear (si estan vacias) o editar (si estan llenas)
   nombreComidaModelo: string
   tipoComidaModelo: string

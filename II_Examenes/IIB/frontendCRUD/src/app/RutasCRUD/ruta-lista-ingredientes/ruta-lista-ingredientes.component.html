@@ -3,7 +3,7 @@
     <div class="col-lg-4">
       <div class="input-group mb-3">
         <div class="input-group-prepend">
-          <button class="btn btn-outline-secondary" type="button"
+          <button class="btn btn-secondary" type="button"
                   (click)="obtenerFiltrarIngrediente()">Buscar
           </button>
         </div>
@@ -16,8 +16,7 @@
       <button type="button"
               class="btn btn-success"
               (click)="irACrearNuevoIngrediente()">
-        <!--  [routerLink]="['/comidas/ingredientes','crear']-->
-        Crear nuevo ingrediente
+        Agregar nuevo ingrediente
       </button>
     </div>
   </div>
@@ -42,8 +41,12 @@
           <td>{{ingrediente["cantidadIngrediente"]}}</td>
           <td>{{ingrediente["refrigeracion"]}}</td>
           <td>
-            <button type="button" (click)="irAEditarIngrediente(ingrediente.id)">Editar</button>
-            <button type="button">Eliminar</button>
+            <button type="button" class="btn btn btn-success"
+                    (click)="irAEditarIngrediente(ingrediente.id)">Editar
+            </button>
+            <button type="button" class="btn btn btn-danger"
+                    (click)="eliminarIngrediente(ingrediente.id)">Eliminar
+            </button>
           </td>
         </tr>
         </tbody>

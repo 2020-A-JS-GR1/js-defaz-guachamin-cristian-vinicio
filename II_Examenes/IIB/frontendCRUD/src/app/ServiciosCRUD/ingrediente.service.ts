@@ -20,15 +20,19 @@ export class IngredienteService {
     return this._httpClient.get(this.url + "/Ingredientes?" + consulta)
   }
 
-  crearIngrediente(ingrediente) {
+  crearIngredienteServicio(ingrediente) {
     return this._httpClient.post(this.url + "/Ingredientes", ingrediente);
   }
 
-  editarIngrediente(ingrediente, id) {
+  editarIngredienteServicio(ingrediente, idIngrediente) {
     return this._httpClient.put(
-      this.url + "/Ingredientes/" + id, // URL
+      this.url + "/Ingredientes/" + idIngrediente, // URL
       ingrediente
     )
+  }
+
+  eliminarIngredienteServicio(idIngrediente: number) {
+    return this._httpClient.delete(this.url + "/Ingredientes/" + idIngrediente);
   }
 
 }
