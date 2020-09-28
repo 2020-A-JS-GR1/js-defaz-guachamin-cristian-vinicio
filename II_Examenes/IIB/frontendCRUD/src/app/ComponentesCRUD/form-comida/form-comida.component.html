@@ -1,0 +1,51 @@
+<div class="row">
+  <div class="col-6">
+    <form #formComida="ngForm"
+          (ngSubmit)="crearComida(formComida)">
+
+      <div class="form-group">
+        <label for="nombreId">Nombre comida:</label>
+        <input type="text" id="nombreId" name="nombreComida"
+               class="form-control" required
+               [(ngModel)]="nombreComidaModelo">
+      </div>
+
+      <div class="form-group">
+        <label for="tipoId">Tipo:  </label>
+        <select id="tipoId" name="tipoComida" class="form-control"
+                [(ngModel)]="tipoComidaModelo" required>
+          <option value="Plato fuerte">Plato fuerte</option>
+          <option value="Sopa">Sopa</option>
+          <option value="Postre">Postre</option>
+          <option value="Bebida">Bebida</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="paisId">Nacionalidad:</label>
+        <input type="text" id="paisId" name="nacionalidad"
+               class="form-control" required
+               [(ngModel)]="nacionalidadModelo">
+      </div>
+
+      <div class="form-group">
+        <label for="numId">Num. personas:</label>
+        <input type="number" id="numId" name="numeroPersonas"
+               class="form-control" required
+               [(ngModel)]="numPersonasModelo">
+      </div>
+
+      <div class="form-group">
+        <label for="picanteId">Es picante?  </label>
+        <select id="picanteId" name="picante"
+                class="form-control" required
+                [(ngModel)]="picanteModelo">
+          <option value="Si">Si</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-success">Guardar cambios</button>
+      <button type="reset" class="btn btn-secondary">Limpiar</button>
+    </form>
+  </div>
+</div>

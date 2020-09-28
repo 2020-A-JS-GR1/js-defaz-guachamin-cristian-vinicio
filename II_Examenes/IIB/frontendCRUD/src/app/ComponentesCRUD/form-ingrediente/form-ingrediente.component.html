@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-6">
+    <form #formIngrediente="ngForm"
+          (ngSubmit)="crearIngrediente(formIngrediente)">
+      
+      <div class="form-group">
+        <label for="nombreId">Nombre ingrediente:</label>
+        <input type="text" id="nombreId" name="nombreIngrediente"
+               class="form-control" required
+               [(ngModel)]="nombreIngredienteModelo">
+      </div>
+
+      <div class="form-group">
+        <label for="tipoId">Tipo: </label>
+        <select id="tipoId" name="tipoIngrediente" class="form-control"
+                [(ngModel)]="tipoIngredienteModelo" required>
+          <option value="Carne/Embutido">Carne/Embutido</option>
+          <option value="Lacteo">Lacteo</option>
+          <option value="Pescado/Marisco">Pescado/Marisco</option>
+          <option value="Fruta">Fruta</option>
+          <option value="Legumbre/Verdura">Legumbre/Verdura</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="numId">Cantidad: </label>
+        <input type="number" id="numId" name="cantidadIngrediente"
+               class="form-control" required
+               [(ngModel)]="cantidadModelo">
+      </div>
+
+      <div class="form-group">
+        <label for="picanteId">Necesita refrigeración? </label>
+        <select id="picanteId" name="refrigeracion"
+                class="form-control" required
+                [(ngModel)]="refrigeracionModelo">
+          <option value="Si">Si</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-success">Guardar cambios</button>
+      <button type="reset" class="btn btn-secondary">Limpiar</button>
+    </form>
+  </div>
+</div>

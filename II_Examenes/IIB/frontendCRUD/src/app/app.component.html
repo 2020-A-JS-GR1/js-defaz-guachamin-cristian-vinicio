@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12">
+      <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+          <img src="https://www.flaticon.es/svg/static/icons/svg/2369/2369321.svg"
+               width="30" height="30" class="d-inline-block align-top" alt="logo">
+          Examen CRUD - JS 2020-A
+        </a>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <br/>
+      <button type="button"
+              class="btn btn-secondary"
+              [routerLink]="['inicio']">Ir al inicio
+      </button>
+      <button type="button"
+              class="btn btn-success"
+              [routerLink]="['comidas']">Mostrar comidas
+      </button>
+      <br/>
+      <br/>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <footer class="blockquote-footer">
+    by <b>Cristian Vinicio Defaz</b>
+  </footer>
+</div>
