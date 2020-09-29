@@ -1,25 +1,27 @@
-<div class="container">
-  <div>
-    <img src="https://i.imgur.com/PwJFBTd.png" alt="Logo BS" width="15%">
-  </div>
-  <br/>
-  <form #formularioCredencialesBS
-        (ngSubmit)="loguearUsuarioBS(formularioCredencialesBS)"
-  >
-    <div>
-      <label for="correoId"></label>
-      <input id="correoId" name="correo"
-             type="text" placeholder="Correo">
-    </div>
-    <br/>
-    <div>
-      <label for="contraseniaId"></label>
-      <input id="contraseniaId" name="contrasenia"
-             type="password" placeholder="Contrasenia">
-    </div>
-    <br/>
-    <button type="submit">
-      Iniciar <b>sesion</b>
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <img src="assets/logo_login.png" alt="Login">
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
     </button>
-  </form>
-</div>
+  </div>
+  <div class="modal-body">
+    <form #formularioCredencialesBS
+          (ngSubmit)="loguearUsuarioBS(formularioCredencialesBS)">
+      <div class="form-group">
+        <label for="correoId">Correo:</label>
+        <input type="email" id="correoId" name="correo" placeholder="a@a.mail"
+               class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="passId">Contraseña:</label>
+        <input type="password" id="passId" name="contrasenia" placeholder="Escriba su contraseña"
+               class="form-control" required>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-dark" (click)="modal.close('Save click')">Iniciar sesión</button>
+      </div>
+    </form>
+  </div>
+</ng-template>
+<button class="btn btn-dark" (click)="open(content)">Iniciar sesión!</button>

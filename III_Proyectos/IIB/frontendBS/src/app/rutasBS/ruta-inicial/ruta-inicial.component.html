@@ -1,25 +1,35 @@
 <div class="container-fluid">
-  <navbar-inicialBS></navbar-inicialBS>
-  <div class="jumbotron jum0botron-fluid">
-    <div class="container">
-      <div class="row">
-        <div class="col-8">
-          <h1 class="display-4">Lo que necesites, <br>el <b class="verdeBS">Búho</b> lo tiene</h1>
-          <p class="lead">Eres profesional?<br> publica tu anuncio ahora !</p>
-          <br/>
-          <button
-            type="button"
-            class="btn btn-dark fa fa-newspaper-o"
-            routerLink="/opciones">
-            Empieza <b>Ahora</b>
-          </button>
-        </div>
-        <div class="col-4">
-          <!-- Aquí puede ir un carrusel de componenetes o algo así xD-->
+  <div class="row">
+    <div class="col-lg-12">
+      <navbar-inicialBS></navbar-inicialBS>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="jumbotron jum0botron-fluid">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8">
+              <h1 class="display-4">Lo que necesites, <br>el <b class="verdeBS">Búho</b> lo tiene</h1>
+              <p class="lead">Eres profesional?<br> publica tu anuncio ahora !</p>
+              <br/>
+              <button
+                type="button"
+                class="btn btn-dark fa fa-newspaper-o"
+                routerLink="/opciones">
+                Empieza <b>Ahora</b>
+              </button>
+            </div>
+            <div class="col-lg-4 text-center">
+              <img src="/assets/multiservicios.png"
+                   alt="multiservicios">
+            </div>
+          </div>
         </div>
       </div>
-
     </div>
   </div>
 </div>
-<router-outlet></router-outlet>
+
+

@@ -1,1 +1,33 @@
-<tarjeta-servicioBS></tarjeta-servicioBS>
+<div class="row">
+  <div class="col-lg-12 text-center">
+    <h5 class="text-info">Explora nuestros <b>Servicios Disponibles</b></h5>
+  </div>
+  <div class="col-lg-3">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <button class="btn btn-secondary" type="button">Buscar
+        </button>
+      </div>
+      <label for="busquedaId"> </label>
+      <input id="busquedaId" name="busqueda" class="form-control">
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="col-lg-12 d-inline-flex p-2">
+      <div class="card" *ngFor="let servicios of arregloServicios">
+        <div class="card-body text-center">
+          <p><img src="{{servicios.urlIcono}}" alt="card image" width="20%"></p>
+          <h4 class="card-title">{{servicios["descripcionServicio"]}}</h4>
+          <p class="card-text">This is basic card with image on top, title, description and button.</p>
+          <button type="button"
+                  class="btn btn-success"
+                  (click)="irAAnunciosDelServicio(servicios.id)">
+            Ver anuncios
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

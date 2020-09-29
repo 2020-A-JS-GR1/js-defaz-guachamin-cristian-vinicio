@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-lg-12 text-center">
+    <h5 class="text-info">Revisa tu <b>información de contacto</b> antes de continuar</h5>
+  </div>
+  <div class="col-4">
+    <form #formContacto="ngForm"
+          (ngSubmit)="crearContacto(formContacto)">
+
+      <div class="form-group">
+        <label for="direccionId">Direccion:</label>
+        <input type="text" id="direccionId" name="direccion"
+               class="form-control" required>
+      </div>
+
+      <div class="form-group">
+        <label for="ciudadId">Ciudad:</label>
+        <input type="text" id="ciudadId" name="ciudad"
+               class="form-control" required>
+      </div>
+
+      <div class="form-group">
+        <label for="cellId">Celular:</label>
+        <input type="text" id="cellId" name="convencional"
+               class="form-control" required>
+      </div>
+
+      <div class="form-group">
+        <label for="convId">Convencional:</label>
+        <input type="text" id="convId" name="convencional"
+               class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="fbId">URL de Facebook</label>
+        <input type="text" id="fbId" name="urlFacebook"
+               class="form-control" required>
+      </div>
+
+      <div class="form-group">
+        <label for="orgId">Organización/Empresa</label>
+        <input type="text" id="orgId" name="organizacion"
+               class="form-control">
+      </div>
+      <button type="submit" class="btn btn-success">Guardar cambios y <b>continuar</b></button>
+      <button type="reset" class="btn btn-secondary">Limpiar</button>
+    </form>
+  </div>
+</div>
