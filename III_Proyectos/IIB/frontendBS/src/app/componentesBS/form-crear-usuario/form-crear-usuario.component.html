@@ -1,40 +1,94 @@
-<ng-template #content let-modal>
-  <div class="modal-header">
-    <img src="assets/logo-cuenta.png" alt="crear">
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
+<div class="row">
+  <div class="col-lg-12">
+    <navbar-inicialBS></navbar-inicialBS>
   </div>
-  <div class="modal-body">
-    <form #formularioCrearUsuarioBS
-          (ngSubmit)="crearUsuarioBS(formularioCrearUsuarioBS)">
-      <div class="form-group">
-        <label for="nombreId">Nombre:</label>
-        <input type="text" id="nombreId" name="nombre" placeholder="Escriba su nombre"
-               class="form-control" required>
-      </div>
-      <div class="form-group">
-        <label for="apellidoId">Apellido:</label>
-        <input type="text" id="apellidoId" name="apellido" placeholder="Escriba su apellido"
-               class="form-control" required>
-      </div>
-      <div class="form-group">
-        <label for="correoId">Correo:</label>
-        <input type="email" id="correoId" name="correo" placeholder="a@a.mail"
-               class="form-control" required>
-      </div>
-      <div class="form-group">
-        <label for="passId">Contraseña:</label>
-        <input type="password" id="passId" name="contrasenia" placeholder="Escriba su contraseña"
-               class="form-control" required>
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-dark" (click)="modal.close('Save click')">Crear cuenta</button>
-      </div>
-    </form>
+</div>
+<br>
+<div class="container-fluid">
+  <div class="row justify-content-md-center text-center">
+    <div class="col-lg-12 text-center">
+      <h5 class="text-info">Crea tu <b>cuenta</b></h5>
+    </div>
+    <br>
+    <div class="col-4">
+      <form #formularioCrearUsuarioBS="ngForm"
+            (ngSubmit)="emitirFormularioValidado(formularioCrearUsuarioBS)">
+        <div class="form-group">
+          <label for="nombreId">Nombre:</label>
+          <input type="text" id="nombreId"
+                 name="nombre"
+                 class="form-control"
+                 [(ngModel)]="nombreModelo"
+                 required
+                 minlength="3"
+                 #nombreCampo="ngModel">
+          <div *ngIf="nombreCampo.touched && nombreCampo.errors">
+            <p *ngIf="nombreCampo.errors.required">
+              Error: Campo obligatorio
+            </p>
+            <p *ngIf="nombreCampo.errors.minlength">
+              Error: Longitud minima 3
+            </p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="apellidoId">Apellido:</label>
+          <input type="text" id="apellidoId" name="apellido"
+                 class="form-control"
+                 [(ngModel)]="apellidoModelo"
+                 required
+                 minlength="3"
+                 #apellidoCampo="ngModel">
+          <div *ngIf="apellidoCampo.touched && apellidoCampo.errors">
+            <p *ngIf="apellidoCampo.errors.required">
+              Error: Campo obligatorio
+            </p>
+            <p *ngIf="apellidoCampo.errors.minlength">
+              Error: Longitud minima 3
+            </p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="correoId">Correo:</label>
+          <input type="email" id="correoId" name="correo"
+                 class="form-control"
+                 [(ngModel)]="correoModelo"
+                 required
+                 minlength="5"
+                 #correoCampo="ngModel">
+          <div *ngIf="correoCampo.touched && correoCampo.errors">
+            <p *ngIf="correoCampo.errors.required">
+              Error: Campo obligatorio
+            </p>
+            <p *ngIf="correoCampo.errors.minlength">
+              Error: Longitud minima 5
+            </p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="passId">Contraseña:</label>
+          <input type="password" id="passId" name="contrasenia"
+                 placeholder="5 caracteres mínimo"
+                 class="form-control"
+                 [(ngModel)]="contraseniaModelo"
+                 required
+                 minlength="5"
+                 #passCampo="ngModel">
+          <div *ngIf="passCampo.touched && passCampo.errors">
+            <p *ngIf="passCampo.errors.required">
+              Error: Campo obligatorio
+            </p>
+            <p *ngIf="passCampo.errors.minlength">
+              La contraseña debe contener a menos 5 caracteres
+            </p>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-success">Guardar <b>cambios</b></button>
+        <button type="reset" class="btn btn-secondary">Limpiar</button>
+      </form>
+    </div>
   </div>
-
-</ng-template>
-<button class="btn btn-outline-dark" (click)="open(content)">Regístrate!</button>
-
-
+</div>

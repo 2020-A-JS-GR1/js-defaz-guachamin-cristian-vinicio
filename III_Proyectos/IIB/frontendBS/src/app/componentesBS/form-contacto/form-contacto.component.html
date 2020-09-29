@@ -8,38 +8,56 @@
 
       <div class="form-group">
         <label for="direccionId">Direccion:</label>
-        <input type="text" id="direccionId" name="direccion"
-               class="form-control" required>
+        <input type="text" id="direccionId"
+               name="direccion"
+               class="form-control"
+               [(ngModel)]="direccionmodelo"
+               required>
       </div>
 
       <div class="form-group">
         <label for="ciudadId">Ciudad:</label>
-        <input type="text" id="ciudadId" name="ciudad"
-               class="form-control" required>
+        <input type="text" id="ciudadId"
+               name="ciudad"
+               class="form-control"
+               [(ngModel)]="ciudadModelo"
+               required>
       </div>
 
       <div class="form-group">
         <label for="cellId">Celular:</label>
-        <input type="text" id="cellId" name="convencional"
-               class="form-control" required>
+        <input type="text" id="cellId"
+               name="convencional"
+               class="form-control"
+               [(ngModel)]="celularModelo"
+               required>
       </div>
 
       <div class="form-group">
         <label for="convId">Convencional:</label>
-        <input type="text" id="convId" name="convencional"
-               class="form-control">
+        <input type="text" id="convId"
+               name="convencional"
+               [(ngModel)]="convencionalModelo"
+               class="form-control"
+               required>
       </div>
 
       <div class="form-group">
         <label for="fbId">URL de Facebook</label>
-        <input type="text" id="fbId" name="urlFacebook"
-               class="form-control" required>
+        <input type="text" id="fbId"
+               name="urlFacebook"
+               class="form-control"
+               [(ngModel)]="urlModelo"
+               required>
       </div>
 
       <div class="form-group">
         <label for="orgId">Organización/Empresa</label>
-        <input type="text" id="orgId" name="organizacion"
-               class="form-control">
+        <input type="text" id="orgId"
+               name="organizacion"
+               class="form-control"
+               [(ngModel)]="organizacionModelo"
+               required>
       </div>
       <button type="submit" class="btn btn-success">Guardar cambios y <b>continuar</b></button>
       <button type="reset" class="btn btn-secondary">Limpiar</button>

@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'form-loginUsuarioBS',
@@ -8,34 +7,31 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 })
 export class FormLoginUsuarioComponent implements OnInit {
 
-  closeResult = '';
+  @Input() correoInput
+  @Input() contraseniaInput
+
+  correoLoginModelo: string
+  contraseniaLoginModelo: string
+
+  @Output() credencialesValidadas: EventEmitter<any> = new EventEmitter<any>()
+
   constructor(
-    private readonly modalService: NgbModal
   ) { }
 
   ngOnInit(): void {
-  }
-
-  open(content) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;console.log(this.closeResult);
-    }, (reason) => {
-      this.closeResult = `Dismissed ${FormLoginUsuarioComponent.getDismissReason(reason)}`;console.log(this.closeResult);
-    });
-  }
-
-  private static getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return `with: ${reason}`;
+    if (this.correoInput && this.contraseniaInput) {
+      this.correoLoginModelo = this.correoInput
+      this.contraseniaLoginModelo = this.contraseniaInput
     }
   }
 
-  loguearUsuarioBS(credenciales){
-    console.log("Mis datos?")
-    console.log(this.closeResult)
+  revisarCredenciales(credenciales){
+    this.credencialesValidadas.emit({
+      correo: this.correoLoginModelo,
+      contrasenia: this.contraseniaLoginModelo
+    })
+
   }
+
+
 }

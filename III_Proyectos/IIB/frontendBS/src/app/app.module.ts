@@ -4,7 +4,6 @@ import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {RutaInicialComponent} from './rutasBS/ruta-inicial/ruta-inicial.component';
-import {RutaCrearUsuarioComponent} from './rutasBS/ruta-crear-usuario/ruta-crear-usuario.component';
 import {FormLoginUsuarioComponent} from './componentesBS/form-login-usuario/form-login-usuario.component';
 import {FormCrearUsuarioComponent} from './componentesBS/form-crear-usuario/form-crear-usuario.component';
 import {FormsModule} from "@angular/forms";
@@ -29,12 +28,18 @@ import { FormContactoComponent } from './componentesBS/form-contacto/form-contac
 import { FormNuevoAnuncioComponent } from './componentesBS/form-nuevo-anuncio/form-nuevo-anuncio.component';
 import { RutaCrearAnuncioComponent } from './rutasBS/ruta-crear-anuncio/ruta-crear-anuncio.component';
 import { RutaGestionAnuncios } from './rutasBS/ruta-gestion-anuncios/ruta-gestion-anuncios.component';
+import {UsuarioBSService} from "./serviciosBS/http/usuarioBS.service";
+import { RutaLoginUsuarioBSComponent } from './rutasBS/ruta-login-usuario-bs/ruta-login-usuario-bs.component';
+import { RutaCrearUsuarioBSComponent } from './rutasBS/ruta-crear-usuario-bs/ruta-crear-usuario-bs.component';
+import {ClienteBSService} from "./serviciosBS/http/clienteBS.service";
+import {DataService} from "./serviciosBS/mensajero/data.service";
+import {AuthServiceBS} from "./serviciosBS/auth/auth.service";
+import {EstaLogueadoBSGuard} from "./serviciosBS/guard/esta-logueado-BS.guard";
 
 @NgModule({
   declarations: [
     AppComponent,
     RutaInicialComponent,
-    RutaCrearUsuarioComponent,
     FormLoginUsuarioComponent,
     FormCrearUsuarioComponent,
     RutaOpcionesPrincipalesComponent,
@@ -53,18 +58,25 @@ import { RutaGestionAnuncios } from './rutasBS/ruta-gestion-anuncios/ruta-gestio
     FormNuevoAnuncioComponent,
     RutaCrearAnuncioComponent,
     RutaGestionAnuncios,
+    RutaLoginUsuarioBSComponent,
+    RutaCrearUsuarioBSComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     NgbModule,
-    HttpClientModule,
+    HttpClientModule
   ],
   providers: [
     ServiciosBSService,
     AnunciosBSService,
-    SolicitudBSService
+    SolicitudBSService,
+    UsuarioBSService,
+    ClienteBSService,
+    DataService,
+    AuthServiceBS,
+    EstaLogueadoBSGuard
   ],
   bootstrap: [AppComponent]
 })

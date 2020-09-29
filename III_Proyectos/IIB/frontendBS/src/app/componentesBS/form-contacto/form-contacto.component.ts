@@ -8,6 +8,15 @@ import {Router} from "@angular/router";
 })
 export class FormContactoComponent implements OnInit {
 
+
+
+  direccionmodelo
+  ciudadModelo
+  celularModelo
+  convencionalModelo
+  urlModelo
+  organizacionModelo
+
   constructor(
     private readonly _router: Router
   ) { }

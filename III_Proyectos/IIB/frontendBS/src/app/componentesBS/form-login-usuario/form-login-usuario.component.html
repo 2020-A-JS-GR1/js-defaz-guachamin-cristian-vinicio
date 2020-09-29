@@ -1,27 +1,58 @@
-<ng-template #content let-modal>
-  <div class="modal-header">
-    <img src="assets/logo_login.png" alt="Login">
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
+<div class="row">
+  <div class="col-lg-12">
+    <navbar-inicialBS></navbar-inicialBS>
   </div>
-  <div class="modal-body">
-    <form #formularioCredencialesBS
-          (ngSubmit)="loguearUsuarioBS(formularioCredencialesBS)">
-      <div class="form-group">
-        <label for="correoId">Correo:</label>
-        <input type="email" id="correoId" name="correo" placeholder="a@a.mail"
-               class="form-control" required>
-      </div>
-      <div class="form-group">
-        <label for="passId">Contraseña:</label>
-        <input type="password" id="passId" name="contrasenia" placeholder="Escriba su contraseña"
-               class="form-control" required>
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-dark" (click)="modal.close('Save click')">Iniciar sesión</button>
-      </div>
-    </form>
+</div>
+<br>
+<div class="container-fluid">
+  <div class="row justify-content-md-center text-center">
+    <div class="col-lg-12 text-center">
+      <h5 class="text-info">Inicia sesión y <b>empieza a explorar</b></h5>
+    </div>
+    <br>
+    <div class="col-4">
+      <form #formularioLogearUsuarioBS="ngForm"
+            (ngSubmit)="revisarCredenciales(formularioLogearUsuarioBS)">
+        <div class="form-group">
+          <label for="correoId">Correo:</label>
+          <input type="email" id="correoId" name="correo"
+                 placeholder="correo@mail.com"
+                 class="form-control text-info"
+                 [(ngModel)]="correoLoginModelo"
+                 required
+                 minlength="5"
+                 #correoCampo="ngModel">
+          <div *ngIf="correoCampo.touched && correoCampo.errors">
+            <p *ngIf="correoCampo.errors.required">
+              Error: Campo obligatorio
+            </p>
+            <p *ngIf="correoCampo.errors.correoCampo">
+              Error: Longitud minima 5
+            </p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="passId">Contraseña:</label>
+          <input type="password" id="passId" name="contrasenia"
+                 placeholder="*******"
+                 class="form-control text-info"
+                 [(ngModel)]="contraseniaLoginModelo"
+                 required
+                 minlength="5"
+                 #passCampo="ngModel">
+          <div *ngIf="passCampo.touched && passCampo.errors">
+            <p *ngIf="passCampo.errors.required">
+              Error: Campo obligatorio
+            </p>
+            <p *ngIf="passCampo.errors.minlength">
+              La contraseña debe contener a menos 5 caracteres
+            </p>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-success">Iniciar <b>sesión</b></button>
+        <button type="reset" class="btn btn-secondary">Limpiar</button>
+      </form>
+    </div>
   </div>
-</ng-template>
-<button class="btn btn-dark" (click)="open(content)">Iniciar sesión!</button>
+</div>

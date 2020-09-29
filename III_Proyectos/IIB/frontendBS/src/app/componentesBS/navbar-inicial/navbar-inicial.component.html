@@ -6,19 +6,27 @@
       </a>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav">
-          <a href="#" class="nav-item nav-link">
+          <a href="https://www.facebook.com/" class="nav-item nav-link">
             <img
               src="/assets/fb.png"
               alt="FB" [width]="30" [height]="30">
           </a>
-          <a href="#" class="nav-item nav-link">
+          <a href="https://twitter.com/" class="nav-item nav-link">
             <img src="/assets/tw.png"
                  alt="FB" [width]="30" [height]="30">
           </a>
+          <div>
+            <a routerLink="/opciones" class="nav-item nav-link">Sesión actual: <b>{{correoUsuarioActual}}</b></a>
+          </div>
         </div>
+
         <div class="navbar-nav ml-auto">
-          <form-crearUsuarioBS></form-crearUsuarioBS>
-          <form-loginUsuarioBS></form-loginUsuarioBS>
+          <button type="button"
+                  routerLink="/crear"
+                  class="btn btn-outline-dark">Regístrate <b>Ahora!</b></button>
+          <button type="button"
+                  routerLink="/login"
+                  class="btn btn-dark">Iniciar <b>Sesión!</b></button>
         </div>
       </div>
     </nav>

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RutaCrearUsuarioComponent } from './ruta-crear-usuario.component';
+import { RutaCrearUsuarioBSComponent } from './ruta-crear-usuario-bs.component';
 
-describe('RutaCrearUsuarioComponent', () => {
-  let component: RutaCrearUsuarioComponent;
-  let fixture: ComponentFixture<RutaCrearUsuarioComponent>;
+describe('RutaCrearUsuarioBSComponent', () => {
+  let component: RutaCrearUsuarioBSComponent;
+  let fixture: ComponentFixture<RutaCrearUsuarioBSComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RutaCrearUsuarioComponent ]
+      declarations: [ RutaCrearUsuarioBSComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RutaCrearUsuarioComponent);
+    fixture = TestBed.createComponent(RutaCrearUsuarioBSComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

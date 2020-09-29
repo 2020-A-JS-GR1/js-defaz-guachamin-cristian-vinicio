@@ -10,11 +10,22 @@ import {RutaAnunciosComponent} from "./rutasBS/ruta-anuncios/ruta-anuncios.compo
 import {RutaCrearContactoComponent} from "./rutasBS/ruta-crear-contacto/ruta-crear-contacto.component";
 import {RutaCrearAnuncioComponent} from "./rutasBS/ruta-crear-anuncio/ruta-crear-anuncio.component";
 import {RutaGestionAnuncios} from "./rutasBS/ruta-gestion-anuncios/ruta-gestion-anuncios.component";
+import {RutaCrearUsuarioBSComponent} from "./rutasBS/ruta-crear-usuario-bs/ruta-crear-usuario-bs.component";
+import {RutaLoginUsuarioBSComponent} from "./rutasBS/ruta-login-usuario-bs/ruta-login-usuario-bs.component";
+import {EstaLogueadoBSGuard} from "./serviciosBS/guard/esta-logueado-BS.guard";
 
 const routes: Routes = [
   {
     component: RutaInicialComponent,
     path:'inicio',
+  },
+  {
+    component: RutaLoginUsuarioBSComponent,
+    path: 'login'
+  },
+  {
+    component: RutaCrearUsuarioBSComponent,
+    path: 'crear'
   },
   {
     component: RutaOpcionesPrincipalesComponent,
@@ -23,6 +34,7 @@ const routes: Routes = [
   {
     component: RutaClientes,
     path: 'clientes',
+    canActivate: [EstaLogueadoBSGuard],
     children: [
       {
         path: 'listaservicios',
@@ -46,6 +58,7 @@ const routes: Routes = [
   {
     path: 'anuncios',
     component: RutaAnunciosComponent,
+    canActivate: [EstaLogueadoBSGuard],
     children: [
       {
         path: 'contacto',

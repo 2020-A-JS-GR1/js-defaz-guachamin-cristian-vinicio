@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {ModalDismissReasons, NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {DataService} from "../../serviciosBS/mensajero/data.service";
 
 @Component({
   selector: 'form-crearUsuarioBS',
@@ -8,34 +8,43 @@ import {ModalDismissReasons, NgbModal} from "@ng-bootstrap/ng-bootstrap";
 })
 export class FormCrearUsuarioComponent implements OnInit {
 
+  // Información que recibe desde el fomulario
+  @Input() nombreInput
+  @Input() apellidoInput
+  @Input() correoInput
+  @Input() contraseniaInput
+
+  // Modelos, que se copian desde el formulario
+  // Si estan vacias -> crear
+  // Si estan llenas -> editar
+  nombreModelo: string
+  apellidoModelo: string
+  correoModelo: string
+  contraseniaModelo: string
   closeResult = '';
-  constructor(
-    private readonly modalService: NgbModal
-  ) { }
+
+  // Pasarle info al componente Padre
+  @Output() informacionValidada: EventEmitter<any> = new EventEmitter<any>()
+
+  constructor (private data: DataService) {  }
 
   ngOnInit(): void {
-  }
-
-  open(content) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${FormCrearUsuarioComponent.getDismissReason(reason)}`;
-    });
-  }
-
-  private static getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return `with: ${reason}`;
+    // Si los inputs están llenos, los gurdamos en los modelos
+    if (this.nombreInput && this.apellidoInput && this.correoModelo && this.contraseniaInput) {
+      this.nombreModelo = this.nombreInput
+      this.apellidoModelo = this.apellidoInput
+      this.correoModelo = this.correoInput
+      this.contraseniaModelo = this.contraseniaInput
     }
   }
 
-  crearUsuarioBS(datosFormCrearUsuarioBS){
-
+  emitirFormularioValidado(datosFormulario) {
+    this.informacionValidada.emit({
+      nombre: this.nombreModelo,
+      apellido: this.apellidoModelo,
+      correo: this.correoModelo,
+      contrasenia: this.contraseniaModelo
+    })
   }
 
 }
