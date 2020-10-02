@@ -5,11 +5,15 @@
   <div class="col-lg-3">
     <div class="input-group mb-3">
       <div class="input-group-prepend">
-        <button class="btn btn-secondary" type="button">Buscar
+        <button class="btn btn-secondary"
+                (click)="filtrarServicios()"
+                type="button">Buscar
         </button>
       </div>
       <label for="busquedaId"> </label>
-      <input id="busquedaId" name="busqueda" class="form-control">
+      <input id="busquedaId" name="busqueda"
+             [(ngModel)]="busquedaModelo"
+             class="form-control">
     </div>
   </div>
 </div>

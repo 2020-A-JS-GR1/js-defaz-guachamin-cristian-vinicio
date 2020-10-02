@@ -10,6 +10,7 @@ import {Router} from "@angular/router";
 export class RutaListaServiciosComponent implements OnInit {
 
   arregloServicios
+  busquedaModelo = ""
 
   constructor(
     private readonly _servicisBS: ServiciosBSService,
@@ -17,7 +18,8 @@ export class RutaListaServiciosComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.obtenerServicios()
+  //  this.obtenerServicios()
+    this.filtrarServicios()
   }
 
   obtenerServicios(){
@@ -39,5 +41,24 @@ export class RutaListaServiciosComponent implements OnInit {
   }
 
 
+  filtrarServicios(){
+    const consulta = {
+          descripcionServicio: {
+            contains: this.busquedaModelo
+          }
+    }
+    const consultaString = 'where=' + JSON.stringify(consulta)
+    const obsServicios = this._servicisBS.obtenerServicios(
+      this.busquedaModelo != '' ? consultaString : '')
+    obsServicios
+      .subscribe(
+        (servicios: any) => {
+          this.arregloServicios = servicios;
+        },
+        (error) => {
+          console.error('Error de quwww', error);
+        }
+      )
+  }
 
 }

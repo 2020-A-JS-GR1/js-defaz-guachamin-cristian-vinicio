@@ -12,7 +12,7 @@ export class ServiciosBSService {
   }
 
   obtenerServicios(consulta?: string) {
-    return this._httpClient.get(this.url + '/Servicio/' + consulta)
+    return this._httpClient.get(this.url + '/Servicio?' + consulta)
   }
 
   obtenerIddServicio(nombreServicio: string) {
