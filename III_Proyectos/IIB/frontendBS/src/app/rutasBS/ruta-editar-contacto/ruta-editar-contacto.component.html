@@ -1,0 +1,11 @@
+<div *ngIf="mostrarFormulario">
+  <form-contacto
+    [direccionInput]="datosContacto.direccion"
+    [ciudadInput]="datosContacto.ciudad"
+    [celularInput]="datosContacto.celular"
+    [convencionalInput]="datosContacto.convencional"
+    [urlInput]="datosContacto.urlFacebook"
+    [organizacionInput]="datosContacto.organizacion"
+    (contactoValidado)="editarContactoAnunciante($event)">
+  </form-contacto>
+</div>

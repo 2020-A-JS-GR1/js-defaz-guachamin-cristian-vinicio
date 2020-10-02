@@ -1,25 +1,30 @@
-<nav class="navbar navbar-expand-md navbar-light bg-light">
-  <a routerLink="/inicio" class="navbar-brand">
-    <img src="https://i.imgur.com/GjbVbWx.png" width="150" alt="CoolBrand">
-  </a>
-  <div class="navbar-nav">
-    <button
-      type="button" class="btn btn-dark fa fa-newspaper-o"
-      routerLink="/login"> Publica tu <b>anuncio</b>
-    </button>
-  </div>
-  <div class="collapse navbar-collapse" id="navbarCollapse">
-    <div class="navbar-nav ml-auto">
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button"
-                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Bienvenido <b> Criss</b>
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="#">Editar mi perfil</a>
-          <a class="dropdown-item" href="#">Cerrar sesión</a>
+<div class="row">
+  <div class="col-lg-12">
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <a routerLink="/inicio" class="navbar-brand">
+        <img src="/assets/LogoBS.png" [width]="180" alt="CoolBrand">
+      </a>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav">
+          <button
+            type="button" class="btn btn-dark"
+            (click)="validarSiEsAnunciante()">
+            Publica tu anuncio <b>aquí</b>
+          </button>
+        </div>
+        <div class="navbar-nav ml-auto">
+          <div ngbDropdown class="d-lg-inline-block">
+            <button class="btn btn-secondary" id="dropdownBasic1" ngbDropdownToggle>Bienvenido
+              <b>{{correoUsuarioActual}}</b></button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <button ngbDropdownItem (click)="irASolicitudes()">Ver <b>mis Solicitudes</b></button>
+              <button ngbDropdownItem (click)="irAAnuncios()">Ver mis <b>Anuncios</b></button>
+              <button ngbDropdownItem (click)="cerrarSesion()"
+                      routerLink="/inicio">Cerrar <b>Sesión</b></button>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </nav>
   </div>
-</nav>
+</div>

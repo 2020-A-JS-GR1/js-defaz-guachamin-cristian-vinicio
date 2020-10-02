@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'form-loginUsuarioBS',
@@ -7,13 +7,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormLoginUsuarioComponent implements OnInit {
 
-  constructor() { }
+  @Input() correoInput
+  @Input() contraseniaInput
+
+  correoLoginModelo: string
+  contraseniaLoginModelo: string
+
+  @Output() credencialesValidadas: EventEmitter<any> = new EventEmitter<any>()
+
+  constructor(
+  ) { }
 
   ngOnInit(): void {
+    if (this.correoInput && this.contraseniaInput) {
+      this.correoLoginModelo = this.correoInput
+      this.contraseniaLoginModelo = this.contraseniaInput
+    }
   }
 
-  loguearUsuarioBS(credencialesBS){
+  revisarCredenciales(credenciales){
+    this.credencialesValidadas.emit({
+      correo: this.correoLoginModelo,
+      contrasenia: this.contraseniaLoginModelo
+    })
 
   }
+
 
 }

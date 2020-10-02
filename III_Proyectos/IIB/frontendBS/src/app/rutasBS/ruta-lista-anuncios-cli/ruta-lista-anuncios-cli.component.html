@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-lg-12 text-center">
+    <h5 class="text-info">Publicaciones de
+      <b>{{arregloAnunciosXServ[0].idServicio.descripcionServicio}}</b> cerca de ti</h5>
+  </div>
+  <div class="col-lg-3">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <button class="btn btn-secondary" type="button">Buscar
+        </button>
+      </div>
+      <label for="busquedaId"> </label>
+      <input id="busquedaId" name="busqueda" class="form-control">
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="col-lg-12 d-inline-flex p-2">
+      <div class="card" *ngFor="let anuncios of arregloAnunciosXServ">
+        <div class="card-body">
+          <label for="idAnun"></label>
+          <input id="idAnun" type="hidden" name="idAnunciante" [value]="anuncios.idAnunciante.id">
+          <h5 class="card-title">{{anuncios["descripcionAnuncio"]}}</h5>
+          <p class="card-text">Cerca de Quito</p>
+          <p class="card-text"><small class="text-muted">Publicado el {{anuncios["fechaAnuncio"]}}</small></p>
+          <p class="card-text"><small class="text-muted">Valor $ {{anuncios["costo"]}}</small></p>
+          <div class="text-center">
+            <app-modal-perfil-anunciante
+              [idAnuncio]="anuncios.id"
+              [idAnunciante]="anuncios.idAnunciante.id"
+            ></app-modal-perfil-anunciante>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

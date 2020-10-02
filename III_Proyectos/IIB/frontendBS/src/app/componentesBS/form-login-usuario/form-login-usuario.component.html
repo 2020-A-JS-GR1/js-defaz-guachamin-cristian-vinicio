@@ -1,25 +1,58 @@
-<div class="container">
-  <div>
-    <img src="https://i.imgur.com/PwJFBTd.png" alt="Logo BS" width="15%">
+<div class="row">
+  <div class="col-lg-12">
+    <navbar-inicialBS></navbar-inicialBS>
   </div>
-  <br/>
-  <form #formularioCredencialesBS
-        (ngSubmit)="loguearUsuarioBS(formularioCredencialesBS)"
-  >
-    <div>
-      <label for="correoId"></label>
-      <input id="correoId" name="correo"
-             type="text" placeholder="Correo">
+</div>
+<br>
+<div class="container-fluid">
+  <div class="row justify-content-md-center text-center">
+    <div class="col-lg-12 text-center">
+      <h5 class="text-info">Inicia sesión y <b>empieza a explorar</b></h5>
     </div>
-    <br/>
-    <div>
-      <label for="contraseniaId"></label>
-      <input id="contraseniaId" name="contrasenia"
-             type="password" placeholder="Contrasenia">
+    <br>
+    <div class="col-lg-3">
+      <form #formularioLogearUsuarioBS="ngForm"
+            (ngSubmit)="revisarCredenciales(formularioLogearUsuarioBS)">
+        <div class="form-group">
+          <label for="correoId">Correo:</label>
+          <input type="email" id="correoId" name="correo"
+                 placeholder="correo@mail.com"
+                 class="form-control text-info"
+                 [(ngModel)]="correoLoginModelo"
+                 required
+                 minlength="5"
+                 #correoCampo="ngModel">
+          <div *ngIf="correoCampo.touched && correoCampo.errors">
+            <p *ngIf="correoCampo.errors.required">
+              Error: Campo obligatorio
+            </p>
+            <p *ngIf="correoCampo.errors.correoCampo">
+              Error: Longitud minima 5
+            </p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="passId">Contraseña:</label>
+          <input type="password" id="passId" name="contrasenia"
+                 placeholder="*******"
+                 class="form-control text-info"
+                 [(ngModel)]="contraseniaLoginModelo"
+                 required
+                 minlength="5"
+                 #passCampo="ngModel">
+          <div *ngIf="passCampo.touched && passCampo.errors">
+            <p *ngIf="passCampo.errors.required">
+              Error: Campo obligatorio
+            </p>
+            <p *ngIf="passCampo.errors.minlength">
+              La contraseña debe contener a menos 5 caracteres
+            </p>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-success">Iniciar <b>sesión</b></button>
+        <button type="reset" class="btn btn-secondary">Limpiar</button>
+      </form>
     </div>
-    <br/>
-    <button type="submit">
-      Iniciar <b>sesion</b>
-    </button>
-  </form>
+  </div>
 </div>

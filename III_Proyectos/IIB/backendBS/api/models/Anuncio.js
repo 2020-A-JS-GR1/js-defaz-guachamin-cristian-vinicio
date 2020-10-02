@@ -24,7 +24,7 @@ module.exports = {
     idAnunciante: {
       model: 'Anunciante',
       columnType: 'tinyint',
-      unique: true, // Un solo anunciante por anuncio
+    // unique: true, // Un solo anunciante por anuncio
       required: true
     },
 
@@ -32,7 +32,7 @@ module.exports = {
     idServicio: {
       model: 'Servicio',
       columnType: 'tinyint',
-      unique: true, // Un solo servicio por anuncio
+     // unique: true, // Un solo servicio por anuncio
       required: true
     },
 
