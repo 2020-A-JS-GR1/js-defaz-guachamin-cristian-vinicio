@@ -70,7 +70,7 @@ export class RutaCrearAnuncioComponent implements OnInit {
   obtenerAnunciante() {
     console.log("Correo usuario actual")
     console.log(this.correoUsuarioActual)
-    this._usuarioService.obtenerIdUusario(this.correoUsuarioActual)
+    this._usuarioService.obtenerUsuarioBS(this.correoUsuarioActual)
       .subscribe(
         (usuarioActual: any[]) => {
           console.log("Usuario actual en obtener anunciante")
@@ -84,24 +84,5 @@ export class RutaCrearAnuncioComponent implements OnInit {
         }
       )
   }
-
-/*  buscarIdServicio(nombreServicio) {
-    this._servicioService.obtenerIddServicio(nombreServicio)
-      .subscribe(
-        (servicio: any) => {
-          console.log("Servicio actual")
-          console.log(servicio)
-          console.log("as any")
-          console.log(servicio as any[])
-          console.log("idservicio en buscar servicio")
-          console.log(servicio[0].id)
-          this.idServicio = Number(servicio[0].id)
-        },
-        error => {
-          console.log("Error buscando Id", error)
-        }
-      )
-  }*/
-
 
 }

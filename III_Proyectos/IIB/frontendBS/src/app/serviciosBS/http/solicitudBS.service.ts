@@ -15,5 +15,8 @@ export class SolicitudBSService {
     return this._httpClient.get(this.url + '/Solicitud?' + consulta)
   }
 
+  crearSolicitud(solicitud){
+    return this._httpClient.post(this.url + "/Solicitud", solicitud)
+  }
 
 }

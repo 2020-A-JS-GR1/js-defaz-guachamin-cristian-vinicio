@@ -12,15 +12,15 @@ export class FormNuevoAnuncioComponent implements OnInit {
 
   arregloServicios
 
-  @Input() servicioInput
-  @Input() descripcionInput
+  @Input() servicioInput: string
+  @Input() descripcionInput: string
   @Input() valorInput: number
 
   @Output() anuncioValidado: EventEmitter<any> = new EventEmitter<any>()
 
   servicioModelo
   descripcionModelo
-  valorModelo: number
+  valorModelo
 
   constructor(
     private readonly _serviciosBs: ServiciosBSService,
@@ -29,9 +29,9 @@ export class FormNuevoAnuncioComponent implements OnInit {
 
   ngOnInit(): void {
     this.cargarServicios()
-    if(this.servicioInput && this.descripcionInput && this.valorInput){
+    if(this.descripcionInput && this.valorInput){
       this.servicioModelo = this.servicioInput
-      this.descripcionModelo = this.servicioInput
+      this.descripcionModelo = this.descripcionInput
       this.valorModelo = this.valorInput
     }
   }

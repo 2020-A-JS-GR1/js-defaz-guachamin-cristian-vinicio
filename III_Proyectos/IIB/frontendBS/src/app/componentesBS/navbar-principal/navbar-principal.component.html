@@ -8,7 +8,8 @@
         <div class="navbar-nav">
           <button
             type="button" class="btn btn-dark"
-            routerLink="/anuncios/contacto"> Publica tu anuncio <b>aquí</b>
+            (click)="validarSiEsAnunciante()">
+            Publica tu anuncio <b>aquí</b>
           </button>
         </div>
         <div class="navbar-nav ml-auto">
@@ -16,8 +17,8 @@
             <button class="btn btn-secondary" id="dropdownBasic1" ngbDropdownToggle>Bienvenido
               <b>{{correoUsuarioActual}}</b></button>
             <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-              <button ngbDropdownItem>Editar mi <b>Perfil</b></button>
-              <button ngbDropdownItem [routerLink]="['/anuncios', 'gestion']">Ver mis <b>Anuncios</b></button>
+              <button ngbDropdownItem (click)="irASolicitudes()">Ver <b>mis Solicitudes</b></button>
+              <button ngbDropdownItem (click)="irAAnuncios()">Ver mis <b>Anuncios</b></button>
               <button ngbDropdownItem (click)="cerrarSesion()"
                       routerLink="/inicio">Cerrar <b>Sesión</b></button>
             </div>

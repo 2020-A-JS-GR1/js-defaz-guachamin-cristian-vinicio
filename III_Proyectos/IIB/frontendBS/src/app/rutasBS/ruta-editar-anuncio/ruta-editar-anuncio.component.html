@@ -1,0 +1,9 @@
+<div *ngIf="mostrarFormulario">
+  <form-nuevo-anuncio
+    [descripcionInput]="datosAnuncio.descripcionAnuncio"
+    [servicioInput]="descripcionServicio"
+    [valorInput]="datosAnuncio.costo"
+    (anuncioValidado)="editarAnuncio($event)">
+  </form-nuevo-anuncio>
+</div>
+

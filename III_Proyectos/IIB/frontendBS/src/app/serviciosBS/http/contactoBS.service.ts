@@ -15,5 +15,15 @@ export class ContactoBSService {
     return this._httpClient.post(this.url + "/Contacto", contacto)
   }
 
+  obtenerContactoPorId(idContacto: number){
+    return this._httpClient.get(this.url + '/Contacto/' + idContacto)
+  }
+
+  editarContacto(contacto, id) {
+    return this._httpClient.patch(
+      this.url + "/Contacto/" + id,
+      contacto
+    )
+  }
 
 }

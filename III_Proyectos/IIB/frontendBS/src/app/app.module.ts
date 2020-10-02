@@ -36,8 +36,10 @@ import {DataService} from "./serviciosBS/mensajero/data.service";
 import {AuthServiceBS} from "./serviciosBS/auth/auth.service";
 import {EstaLogueadoBSGuard} from "./serviciosBS/guard/esta-logueado-BS.guard";
 import {ContactoBSService} from "./serviciosBS/http/contactoBS.service";
-import { FormDedicacionComponent } from './componentesBS/form-dedicacion/form-dedicacion.component';
 import {AnuncianteService} from "./serviciosBS/http/anunciante.service";
+import { RutaEditarContactoComponent } from './rutasBS/ruta-editar-contacto/ruta-editar-contacto.component';
+import { RutaEditarAnuncioComponent } from './rutasBS/ruta-editar-anuncio/ruta-editar-anuncio.component';
+import {ReseniaService} from "./serviciosBS/http/resenia.service";
 
 @NgModule({
   declarations: [
@@ -63,7 +65,8 @@ import {AnuncianteService} from "./serviciosBS/http/anunciante.service";
     RutaGestionAnuncios,
     RutaLoginUsuarioBSComponent,
     RutaCrearUsuarioBSComponent,
-    FormDedicacionComponent,
+    RutaEditarContactoComponent,
+    RutaEditarAnuncioComponent,
   ],
   imports: [
     BrowserModule,
@@ -82,7 +85,8 @@ import {AnuncianteService} from "./serviciosBS/http/anunciante.service";
     AuthServiceBS,
     EstaLogueadoBSGuard,
     ContactoBSService,
-    AnuncianteService
+    AnuncianteService,
+    ReseniaService
   ],
   bootstrap: [AppComponent]
 })

@@ -19,13 +19,19 @@ export class AnunciosBSService {
     return this._httpClient.get(this.url + '/Anunciante/' + idAnunciante)
   }
 
-  /*
-  *   obtenerDatosAnunciante(idAnunciante: number) {
-    return this._httpClient.get(this.url + '/Anunciante/' + idAnunciante)
-  }*/
   crearAnuncio(anuncio){
     return this._httpClient.post(this.url + "/Anuncio", anuncio)
   }
 
+  obtenerAnuncioPorId(idAnuncio: number){
+    return this._httpClient.get(this.url + '/Anuncio/' + idAnuncio)
+  }
+
+  editarAnuncio(anuncio, id) {
+    return this._httpClient.patch(
+      this.url + "/Anuncio/" + id,
+      anuncio
+    )
+  }
 }
 

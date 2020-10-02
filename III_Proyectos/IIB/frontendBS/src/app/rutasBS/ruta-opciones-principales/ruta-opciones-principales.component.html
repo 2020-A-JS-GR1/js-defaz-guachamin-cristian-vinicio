@@ -26,7 +26,7 @@
             <p class="lead">Cientos de personas necesitan de ti, anímate!</p>
             <hr class="my-4">
             <a class="btn btn-outline-dark btn-lg"
-               [routerLink]="['/anuncios','contacto']"
+               (click)="validarSiEsAnunciante()"
                role="button">Anúnciate <b>Ahora!</b></a>
           </div>
         </div>

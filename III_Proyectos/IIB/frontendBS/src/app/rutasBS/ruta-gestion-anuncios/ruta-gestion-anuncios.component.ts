@@ -43,8 +43,4 @@ export class RutaGestionAnuncios implements OnInit {
       )
   }
 
-  cargarResenias(idAnunciante: number) {
-
-  }
-
 }

@@ -17,7 +17,7 @@
               <b>{{correoUsuarioActual}}</b></button>
             <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
               <button ngbDropdownItem>Editar mi <b>Perfil</b></button>
-              <button ngbDropdownItem [routerLink]="['/anuncios', 'gestion']">Ver mis <b>Anuncios</b></button>
+              <button ngbDropdownItem (click)="mostrarAnuncios()">Ver mis <b>Anuncios</b></button>
               <button ngbDropdownItem (click)="cerrarSesion()" routerLink="/inicio">Cerrar <b>Sesión</b></button>
             </div>
           </div>

@@ -15,8 +15,12 @@ export class ServiciosBSService {
     return this._httpClient.get(this.url + '/Servicio/' + consulta)
   }
 
-  obtenerIddServicio(nombreServicio) {
+  obtenerIddServicio(nombreServicio: string) {
     return this._httpClient.get(this.url + '/Servicio?where={"descripcionServicio":"' + nombreServicio + '"}')
+  }
+
+  obtenerServicioPorId(idServicio: number){
+    return this._httpClient.get(this.url + '/Servicio?where={"id":' + idServicio + '}')
   }
 
 }

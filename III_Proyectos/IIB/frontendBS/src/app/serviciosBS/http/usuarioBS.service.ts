@@ -17,7 +17,7 @@ export class UsuarioBSService {
   }
 
   // Obtener id a partir de sus correo
-  obtenerIdUusario(correoUsuario) {
+  obtenerUsuarioBS(correoUsuario) {
     return this._httpClient.get(this.url + '/Usuario?where={"correo":"' + correoUsuario + '"}')
   }
 

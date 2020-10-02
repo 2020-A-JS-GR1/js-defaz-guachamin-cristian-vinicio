@@ -16,4 +16,8 @@ export class ClienteBSService {
     return this._httpClient.post(this.url + "/Cliente", cliente)
   }
 
+  obtenerClienteBS(idCliente: number) {
+    return this._httpClient.get(this.url + '/Cliente/'+idCliente)
+  }
+
 }

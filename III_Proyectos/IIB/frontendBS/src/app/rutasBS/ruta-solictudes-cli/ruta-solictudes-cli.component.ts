@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {SolicitudBSService} from "../../serviciosBS/http/solicitudBS.service";
 
@@ -9,8 +9,8 @@ import {SolicitudBSService} from "../../serviciosBS/http/solicitudBS.service";
 })
 export class RutaSolictudesCliComponent implements OnInit {
 
-  idCliente
   arregloSolicitudes
+  idClienteFromParametro
 
   constructor(
     private readonly _solictudService: SolicitudBSService,
@@ -23,6 +23,7 @@ export class RutaSolictudesCliComponent implements OnInit {
       .subscribe(
         (parametros) => {
           const id = Number(parametros.id)
+          this.idClienteFromParametro = id
           this.mostrarSolictudesCliente(id)
         }
       )
@@ -35,16 +36,15 @@ export class RutaSolictudesCliComponent implements OnInit {
       .subscribe(
         (data: any) => {
           this.arregloSolicitudes = data
+          console.log(data)
+          console.log("intentando sacar idanunciante")
+          console.log(data[0].idAnuncio.idAnunciante)
           console.log(this.arregloSolicitudes)
         },
         (error) => {
           console.error("Error al obtener solicitudes", error)
         }
       )
-  }
-
-  crearUnaResenia(){
-
   }
 
 }

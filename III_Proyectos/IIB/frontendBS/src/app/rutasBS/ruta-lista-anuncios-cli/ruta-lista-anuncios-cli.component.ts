@@ -36,6 +36,7 @@ export class RutaListaAnunciosCliComponent implements OnInit {
       .subscribe(
         (data: any) => {
           this.arregloAnunciosXServ = data
+          console.log("arregloAnunciosXServ: ")
           console.log(this.arregloAnunciosXServ)
         },
         (error) => {

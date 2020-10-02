@@ -8,37 +8,45 @@
     <div class="row justify-content-md-center text-center">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <ngb-rating [(rate)]="currentRate"></ngb-rating>
-          <pre>Reputación: <b>{{currentRate}}</b></pre>
+          <ngb-rating [(rate)]="datosAnunciante.reputacion"></ngb-rating>
+          <pre>Reputación: <b>{{datosAnunciante.reputacion}}</b></pre>
         </div>
         <div class="col-lg-12">
-          <p class="text-info">Califica a <b>Juanita</b></p>
+          <p class="text-info">Califica a <b>{{datosAnunciante.idUsuario.nombre
+          + ' ' + datosAnunciante.idUsuario.apellido}}</b></p>
           <img src="/assets/usergirl.png" alt="Foto de anunciante" [width]="150">
         </div>
       </div>
     </div>
     <br>
     <div class="container text-center">
-      <div class="row">
-        <div class="col-lg-12">
-          <p class="text-info">Déjale un comentario (opcional)</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="form-group">
-            <label for="exampleFormControlTextarea1"></label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      <form #formContacto="ngForm"
+            (ngSubmit)="revisarComentario(formContacto)">
+        <div class="row">
+          <div class="col-lg-12">
+            <p class="text-info">Déjale un comentario (opcional)</p>
           </div>
         </div>
-      </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1"></label>
+              <textarea class="form-control"
+                        name="comentario"
+                        id="exampleFormControlTextarea1" rows="3"
+                        [(ngModel)]="comentarioModelo"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary"
+                  (click)="modal.close(revisarComentario($event))"
+          >Guardar <b>Reseña</b>
+          </button>
+        </div>
+      </form>
     </div>
   </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-primary"
-            (click)="modal.close('sd')"
-    >Guardar <b>Reseña</b>
-    </button>
-  </div>
+
 </ng-template>
 <button class="btn btn-outline-dark" (click)="open(content)">Calificar atención</button>

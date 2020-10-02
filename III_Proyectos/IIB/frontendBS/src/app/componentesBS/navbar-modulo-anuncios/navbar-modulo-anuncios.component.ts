@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {DataService} from "../../serviciosBS/mensajero/data.service";
 import {AuthServiceBS} from "../../serviciosBS/auth/auth.service";
+import {UsuarioBSService} from "../../serviciosBS/http/usuarioBS.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'navbar-modulo-anuncios',
@@ -13,7 +15,9 @@ export class NavbarModuloAnunciosComponent implements OnInit {
 
   constructor(
     private readonly _data: DataService,
-    private readonly _authService: AuthServiceBS
+    private readonly _auth: AuthServiceBS,
+    private readonly _usuarioService: UsuarioBSService,
+    private readonly _router: Router
 
   ) { }
 
@@ -24,7 +28,22 @@ export class NavbarModuloAnunciosComponent implements OnInit {
 
   cerrarSesion(){
     this._data.enviarDatosUsuarioLogueado("Usuario Invitado")
-    this._authService.estaAutenticado = false
+    this._auth.estaAutenticado = false
+    this._auth.correo = "Usuario Invitado"
+  }
+
+  mostrarAnuncios(){
+    this._usuarioService.obtenerUsuarioBS(this._auth.correo)
+      .subscribe(
+        (data: any[]) => {
+          if(data[0].anunciante.length === 0){
+            alert("No tienes anuncios publicados")
+          }else{
+            const url = ['/anuncios','gestion', data[0].anunciante[0].id]
+            this._router.navigate(url).then(x => x)
+          }
+        }
+      )
   }
 
 }

@@ -13,6 +13,8 @@ import {RutaGestionAnuncios} from "./rutasBS/ruta-gestion-anuncios/ruta-gestion-
 import {RutaCrearUsuarioBSComponent} from "./rutasBS/ruta-crear-usuario-bs/ruta-crear-usuario-bs.component";
 import {RutaLoginUsuarioBSComponent} from "./rutasBS/ruta-login-usuario-bs/ruta-login-usuario-bs.component";
 import {EstaLogueadoBSGuard} from "./serviciosBS/guard/esta-logueado-BS.guard";
+import {RutaEditarContactoComponent} from "./rutasBS/ruta-editar-contacto/ruta-editar-contacto.component";
+import {RutaEditarAnuncioComponent} from "./rutasBS/ruta-editar-anuncio/ruta-editar-anuncio.component";
 
 const routes: Routes = [
   {
@@ -71,6 +73,14 @@ const routes: Routes = [
       {
         path: 'gestion/:id',
         component: RutaGestionAnuncios
+      },
+      {
+        path: 'editarcontacto/:id',
+        component: RutaEditarContactoComponent
+      },
+      {
+        path: 'editaranuncio/:id',
+        component: RutaEditarAnuncioComponent
       }
     ]
   },

@@ -43,7 +43,7 @@ export class RutaCrearContactoComponent implements OnInit {
           console.log(contactoCreado)
           console.log("idContactoCreado: ", contactoCreado.id)
           console.log(this.correoUsuarioActual)
-          this._usuarioService.obtenerIdUusario(this.correoUsuarioActual)
+          this._usuarioService.obtenerUsuarioBS(this.correoUsuarioActual)
             .subscribe(
               (usuarioActual: any[]) => {
                 console.log("Usuario actual")

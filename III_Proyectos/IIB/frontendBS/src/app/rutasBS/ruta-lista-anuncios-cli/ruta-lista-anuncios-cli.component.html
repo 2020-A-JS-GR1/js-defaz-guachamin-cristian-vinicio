@@ -20,12 +20,14 @@
       <div class="card" *ngFor="let anuncios of arregloAnunciosXServ">
         <div class="card-body">
           <label for="idAnun"></label>
-          <input id="idAnun" type="hidden" name="idAnunciante" value="{{anuncios.idAnunciante.id}}">
-          <h5 class="card-title">Anuncio {{anuncios.idAnunciante.id}}</h5>
-          <p class="card-text">{{anuncios["descripcionAnuncio"]}}</p>
-          <p class="card-text"><small class="text-muted">Cerca de Quito</small></p>
+          <input id="idAnun" type="hidden" name="idAnunciante" [value]="anuncios.idAnunciante.id">
+          <h5 class="card-title">{{anuncios["descripcionAnuncio"]}}</h5>
+          <p class="card-text">Cerca de Quito</p>
+          <p class="card-text"><small class="text-muted">Publicado el {{anuncios["fechaAnuncio"]}}</small></p>
+          <p class="card-text"><small class="text-muted">Valor $ {{anuncios["costo"]}}</small></p>
           <div class="text-center">
             <app-modal-perfil-anunciante
+              [idAnuncio]="anuncios.id"
               [idAnunciante]="anuncios.idAnunciante.id"
             ></app-modal-perfil-anunciante>
           </div>
