@@ -2,9 +2,9 @@
   <div class="col-lg-12 text-center">
     <h5 class="text-info">Revisa tu <b>información de contacto</b> antes de continuar</h5>
   </div>
-  <div class="col-4">
+  <div class="col-lg-4">
     <form #formContacto="ngForm"
-          (ngSubmit)="crearContacto(formContacto)">
+          (ngSubmit)="revisarContacto(formContacto)">
 
       <div class="form-group">
         <label for="direccionId">Direccion:</label>
@@ -27,7 +27,7 @@
       <div class="form-group">
         <label for="cellId">Celular:</label>
         <input type="text" id="cellId"
-               name="convencional"
+               name="celular"
                class="form-control"
                [(ngModel)]="celularModelo"
                required>
@@ -43,7 +43,7 @@
       </div>
 
       <div class="form-group">
-        <label for="fbId">URL de Facebook</label>
+        <label for="fbId">URL de Facebook:</label>
         <input type="text" id="fbId"
                name="urlFacebook"
                class="form-control"
@@ -52,15 +52,26 @@
       </div>
 
       <div class="form-group">
-        <label for="orgId">Organización/Empresa</label>
+        <label for="orgId">Organización/Empresa:</label>
         <input type="text" id="orgId"
                name="organizacion"
                class="form-control"
                [(ngModel)]="organizacionModelo"
                required>
       </div>
+      <div class="form-group">
+        <label for="ocupacion">Profesión / Oficio:</label>
+        <input type="text" id="ocupacion"
+               name="ocupacion"
+               class="form-control"
+               [(ngModel)]="ocupacionModelo"
+               required>
+      </div>
       <button type="submit" class="btn btn-success">Guardar cambios y <b>continuar</b></button>
       <button type="reset" class="btn btn-secondary">Limpiar</button>
     </form>
+  </div>
+  <div class="col-lg-4">
+
   </div>
 </div>

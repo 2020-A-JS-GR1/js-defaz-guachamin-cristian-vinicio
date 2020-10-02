@@ -27,5 +27,11 @@ export class AuthServiceBS {
   enviarDatosAlNavbar(){
     this._data.enviarDatosUsuarioLogueado(this.correo)
   }
+  //localhost:1337/Usuario?where={"correo":"dz@gmail.com"}
+/*  enviaridUsuario(){
+    return this._httpClient.get(
+      this.url + '/Usuario?where={"correo": "'+this.correo+'"}'
+    )
+  }*/
 
 }

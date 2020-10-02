@@ -65,11 +65,11 @@ const routes: Routes = [
         component: RutaCrearContactoComponent
       },
       {
-        path: 'crear',
+        path: 'nuevo',
         component: RutaCrearAnuncioComponent
       },
       {
-        path: 'gestion',
+        path: 'gestion/:id',
         component: RutaGestionAnuncios
       }
     ]

@@ -4,33 +4,34 @@
   </div>
   <div class="col-4">
     <form #formContacto="ngForm"
-          (ngSubmit)="crearAnuncio(formContacto)">
+          (ngSubmit)="revisarAnuncio(formContacto)">
 
       <div class="form-group">
         <label for="tipoSevicio">Selecciona el tipo de servicio:</label>
-        <select id="tipoSevicio" name="idServicio" class="form-control" ngModel="selected">
+        <select id="tipoSevicio" name="descripcionServicio"
+                class="form-control" ngModel="selected"
+                [(ngModel)]="servicioModelo">
           <option [value]="servicio.descripcionServicio"
-                  *ngFor="let servicio of arregloServicios">{{servicio.descripcionServicio}}</option>
+                  *ngFor="let servicio of arregloServicios">
+            {{servicio.descripcionServicio}}</option>
         </select>
       </div>
-      <!--
-      <select [(ngModel)]="passenger.Title">
-    <option *ngFor="let title of titleArray" [value]="title.Value">
-      {{title.Text}}
-    </option>
-</select>
-      -->
-
       <div class="form-group">
         <label for="descripAnuncio">Describe tu anuncio:</label>
-        <input type="text" id="descripAnuncio" name="descripcionAnuncio"
-               class="form-control" required>
+        <input type="text" id="descripAnuncio"
+               name="descripcionAnuncio"
+               class="form-control"
+               [(ngModel)]="descripcionModelo"
+               required>
       </div>
 
       <div class="form-group">
         <label for="valorId">Valor de servicio</label>
-        <input type="number" id="valorId" name="costo"
-               class="form-control" required>
+        <input type="number" id="valorId"
+               name="costo"
+               class="form-control"
+               [(ngModel)]="valorModelo"
+               required>
       </div>
 
       <button type="submit" class="btn btn-success">Publicar <b>Anuncio</b></button>

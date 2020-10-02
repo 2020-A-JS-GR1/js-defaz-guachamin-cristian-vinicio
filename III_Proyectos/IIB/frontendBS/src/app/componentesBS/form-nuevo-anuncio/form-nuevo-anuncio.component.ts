@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ServiciosBSService} from "../../serviciosBS/http/serviciosBS.service";
 import {Router} from "@angular/router";
 
@@ -7,9 +7,20 @@ import {Router} from "@angular/router";
   templateUrl: './form-nuevo-anuncio.component.html',
   styleUrls: ['./form-nuevo-anuncio.component.css']
 })
+
 export class FormNuevoAnuncioComponent implements OnInit {
 
   arregloServicios
+
+  @Input() servicioInput
+  @Input() descripcionInput
+  @Input() valorInput: number
+
+  @Output() anuncioValidado: EventEmitter<any> = new EventEmitter<any>()
+
+  servicioModelo
+  descripcionModelo
+  valorModelo: number
 
   constructor(
     private readonly _serviciosBs: ServiciosBSService,
@@ -18,6 +29,11 @@ export class FormNuevoAnuncioComponent implements OnInit {
 
   ngOnInit(): void {
     this.cargarServicios()
+    if(this.servicioInput && this.descripcionInput && this.valorInput){
+      this.servicioModelo = this.servicioInput
+      this.descripcionModelo = this.servicioInput
+      this.valorModelo = this.valorInput
+    }
   }
 
   cargarServicios(){
@@ -33,11 +49,14 @@ export class FormNuevoAnuncioComponent implements OnInit {
       )
   }
 
-  crearAnuncio(formularioAnuncio){
-    // Validar anuncio e ir a gestion
-
-    const ruta = ["/anuncios", "gestion"];
-    this._router.navigate(ruta).then(x => x)
+  revisarAnuncio(formularioAnuncio) {
+    this.anuncioValidado.emit(
+      {
+        descripcionServicio: this.servicioModelo,
+        descripcionAnuncio: this.descripcionModelo,
+        costo: this.valorModelo
+      }
+    )
   }
 
 }

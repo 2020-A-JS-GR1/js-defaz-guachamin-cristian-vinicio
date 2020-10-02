@@ -11,14 +11,13 @@ export class RutaLoginUsuarioBSComponent implements OnInit {
 
   constructor(
     private readonly _authService: AuthServiceBS,
-    private readonly _router: Router
+    private readonly _router: Router,
   ) { }
 
   ngOnInit(): void {
   }
 
   loguearUsuario(formularioLogin){
-
     console.log(formularioLogin)
     const obsLogin = this._authService.login(formularioLogin.correo, formularioLogin.contrasenia)
     obsLogin

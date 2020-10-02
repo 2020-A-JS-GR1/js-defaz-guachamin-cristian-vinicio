@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Router} from "@angular/router";
 
 @Component({
@@ -8,7 +8,15 @@ import {Router} from "@angular/router";
 })
 export class FormContactoComponent implements OnInit {
 
+  @Input() direccionInput: string
+  @Input() ciudadInput: string
+  @Input() celularInput: string
+  @Input() convencionalInput: string
+  @Input() urlInput: string
+  @Input() organizacionInput: string
+  @Input() ocupacionInput: string
 
+  @Output() contactoValidado: EventEmitter<any> = new EventEmitter<any>()
 
   direccionmodelo
   ciudadModelo
@@ -17,18 +25,38 @@ export class FormContactoComponent implements OnInit {
   urlModelo
   organizacionModelo
 
+  ocupacionModelo
+
   constructor(
     private readonly _router: Router
   ) { }
 
   ngOnInit(): void {
+    if(this.direccionInput && this.ciudadInput && this.celularInput
+    && this.convencionalInput && this.organizacionInput){
+      this.direccionmodelo = this.direccionInput
+      this.ciudadModelo = this.ciudadInput
+      this.celularModelo = this.celularInput
+      this.convencionalModelo = this.convencionalInput
+      this.urlModelo = this.urlInput
+      this.organizacionModelo = this.organizacionInput
+      this.ocupacionModelo = this.ocupacionInput
+    }
   }
 
-  crearContacto(formContacto){
-    // Validar contacto e ir a crear anuncio
+  revisarContacto(formContacto){
+    this.contactoValidado.emit({
+      direccion: this.direccionmodelo,
+      ciudad: this.ciudadModelo,
+      convencional: this.convencionalModelo,
+      celular: this.celularModelo,
+      urlFacebook: this.urlModelo,
+      organizacion: this.organizacionModelo,
+      ocupacion: this.ocupacionModelo
+    })
 
-    const ruta = ["/anuncios", "crear"];
-    this._router.navigate(ruta).then(x => x)
+  /*  const ruta = ["/anuncios", "crear"];
+    this._router.navigate(ruta).then(x => x)*/
 
   }
 

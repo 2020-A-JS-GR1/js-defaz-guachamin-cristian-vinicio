@@ -31,7 +31,7 @@ export class RutaListaAnunciosCliComponent implements OnInit {
 
   obtenerAnunciosPorServicios(idServicio: number){
     const consulta = 'where={"idServicio":'+idServicio+'}'
-    const obsServicios = this._anuncioService.obtenerAnuncios(consulta)
+    const obsServicios = this._anuncioService.obtenerTodosLosAnuncios(consulta)
     obsServicios
       .subscribe(
         (data: any) => {

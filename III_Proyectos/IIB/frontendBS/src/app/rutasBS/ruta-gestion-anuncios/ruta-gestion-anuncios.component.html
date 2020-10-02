@@ -28,20 +28,19 @@
         <table class="table table-hover table-sm">
           <thead class="table-dark">
           <tr>
-            <th>id</th>
             <th>Id</th>
-            <th>Tipo de servicio</th>
-            <th>Valor</th>
+            <th>FechaAnuncio</th>
             <th>Descripcion</th>
+            <th>Valor</th>
             <th>Acciones</th>
           </tr>
           </thead>
           <tbody>
           <tr *ngFor="let anuncio of listaAnuncios">
             <td>{{anuncio.id}}</td>
+            <td>{{anuncio["fechaAnuncio"]}}</td>
             <td>{{anuncio["descripcionAnuncio"]}}</td>
             <td>{{anuncio["costo"]}}</td>
-            <td>{{anuncio["estadoAnuncio"]}}</td>
             <td>
               <button type="button" class="btn btn btn-success">Editar
               </button>
@@ -79,16 +78,15 @@
           <thead class="table-dark">
           <tr>
             <th>id</th>
-            <th>calificaciones</th>
+            <th>Calificación</th>
             <th>Comentarios</th>
           </tr>
           </thead>
           <tbody>
           <tr *ngFor="let resenia of listaResenias">
             <td>{{resenia.id}}</td>
-            <td>{{resenia["descripcionAnuncio"]}}</td>
-            <td>{{resenia["costo"]}}</td>
-            <td>{{resenia["estadoAnuncio"]}}</td>
+            <td>{{resenia["calificacion"]}}</td>
+            <td>{{resenia["comentario"]}}</td>
           </tr>
           </tbody>
         </table>
